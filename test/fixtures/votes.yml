@@ -13,7 +13,11 @@ scalzi_murderbot:
 scalzi_october:
   date: October 1 2019
   user: scalzi
-  work: murderbot
+  work: october
+butler_october:
+  date: October 11 2019
+  user: butler
+  work: october
 butler_darius:
   date: October 12 2019
   user: butler
