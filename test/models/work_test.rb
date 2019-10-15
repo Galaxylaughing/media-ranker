@@ -84,7 +84,7 @@ describe Work do
       expect(response).wont_include works(:life_mccorkle)
     end
     
-    it "returns nil if there are no albums" do
+    it "returns an empty list if there are no albums" do
       # remove all albums
       albums = Work.where(category: "album")
       albums.each do |album|
@@ -93,7 +93,13 @@ describe Work do
       
       response = Work.find_top_ten("album")
       
-      expect(response).must_be_nil
+      expect(response).must_be_empty
+    end
+    
+    it "returns an empty list if there are no votes" do
+      response = Work.find_top_ten("album")
+      
+      expect(response).must_be_empty
     end
     
     # what should it do if there's a tie??
