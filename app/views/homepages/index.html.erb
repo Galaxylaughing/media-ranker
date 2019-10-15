@@ -1,14 +1,15 @@
 <section class="spotlight">
-  <h2>Media Spotlight:</h2>
-  <p>
-    <span>Example</span>
-    <span>by Creator</span>
-  </p>
+  <% spotlight = Work.find_highest_voted() %>
+  <h2>
+    Media Spotlight:
+    <span><%= spotlight.name %></span>
+    <span>by <%= spotlight.creator %></span>
+  </h2>
 
   <p>
-    <span>Number votes</span>
+    <span><%= spotlight.votes.count %> votes</span>
     <span> - </span>
-    <span>description</span>
+    <span><%= spotlight.description %></span>
   </p>
 </section>
 
@@ -17,32 +18,44 @@
     <h2>
       Top Movies
     </h2>
-    <p>
-      <span>Example Title</span>
-      <span>by Creator</span>
-      <div class="num_votes">Number votes</div>
-    </p>
+
+    <% top_movies = Work.find_top_ten("movie") %>
+    <% top_movies.each do |top_movie| %>
+      <p>
+        <span><%= top_movie.name %></span>
+        <span>by <%= top_movie.creator %></span>
+        <div class="num_votes"><%= top_movie.votes.count %> votes</div>
+      </p>
+    <% end %>
   </section>
 
   <section>
     <h2>
       Top Books
     </h2>
-    <p>
-      <span>Example Title</span>
-      <span>by Author</span>
-      <div class="num_votes">Number votes</div>
-    </p>
+
+    <% top_books = Work.find_top_ten("book") %>
+    <% top_books.each do |top_book| %>
+      <p>
+        <span><%= top_book.name %></span>
+        <span>by <%= top_book.creator %></span>
+        <div class="num_votes"><%= top_book.votes.count %> votes</div>
+      </p>
+    <% end %>
   </section>
 
   <section>
     <h2>
       Top Albums
     </h2>
-    <p>
-      <span>Example Title</span>
-      <span>by Creator</span>
-      <div class="num_votes">Number votes</div>
-    </p>
+
+    <% top_albums = Work.find_top_ten("album") %>
+    <% top_albums.each do |top_album| %>
+      <p>
+        <span><%= top_album.name %></span>
+        <span>by <%= top_album.creator %></span>
+        <div class="num_votes"><%= top_album.votes.count %> votes</div>
+      </p>
+    <% end %>
   </section>
 </article>
