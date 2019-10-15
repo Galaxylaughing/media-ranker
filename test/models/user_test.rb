@@ -1,30 +1,12 @@
 require "test_helper"
 
 describe User do
-  describe "relationships" do
-    before do
-      @user = User.create(username: "user", date_joined: Date.today)
-      @work = Work.create(category: "book", name: "To Kill A Mockingbird", creator: "Harper Lee")
-      @vote = Vote.create(user_id: @user.id, work_id: @work.id)
-    end
-    
-    it "can have a vote" do
-      user = User.find_by(username: @user.username)
-      
-      expect(user.votes).wont_be_nil
-      expect(user.votes).must_include @vote
-      expect(user.votes.count).must_equal 1
-    end
-    
+  describe "relationships" do   
     it "can have multiple votes" do
-      new_work = Work.create(category: "book", name: "Go Set A Watchman", creator: "Harper Lee")
-      new_vote = Vote.create(user_id: @user.id, work_id: new_work.id)
+      user = users(:scalzi)
       
-      user = User.find_by(username: @user.username)
-      
-      expect(user.votes).wont_be_nil
-      expect(user.votes).must_include new_vote
-      expect(user.votes.count).must_equal 2
+      expect(user.votes).must_include votes(:scalzi_october)
+      expect(user.votes).must_include votes(:scalzi_murderbot)
     end
   end
   
