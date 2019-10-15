@@ -84,6 +84,54 @@ name:
   creator: Makoto Shinkai
   description: Animated Japanese film. You should see it. No spoilers. Just trust me
   published_date: January 1 2017
+nausicaa:
+  category: movie
+  name: Nausicaa of the Valley of the Wind
+  creator: Hayao Miyazaki
+  description: Animated sci-fi movie
+  published_date: January 1 1984
+castle:
+  category: movie
+  name: Castle in the Sky
+  creator: Hayao Miyazaki
+  description: Animated sci-fi movie
+  published_date: January 1 1986
+spirited:
+  category: movie
+  name: Spirited Away
+  creator: Hayao Miyazaki
+  description: Animated sci-fi movie
+  published_date: January 1 2001
+hope:
+  category: movie
+  name: A New Hope
+  creator: George Lucas
+  description: star warssss
+  published_date: January 1 1977
+empire:
+  category: movie
+  name: The Empire Strikes Back
+  creator: George Lucas
+  description: star warssss
+  published_date: January 1 1980
+return:
+  category: movie
+  name: Return of the Jedi
+  creator: George Lucas
+  description: star warssss
+  published_date: January 1 1983
+chitty:
+  category: movie
+  name: Chitty Chitty Bang Bang
+  creator: Ken Hughes
+  description: A fantasy musical. A wild ride
+  published_date: January 1 1986
+monsters:
+  category: movie
+  name: Monsters, Inc.
+  creator: Pete Doctor
+  description: A classic
+  published_date: January 1 2001
 # ALBUMS
 noteworthy:
   category: album
