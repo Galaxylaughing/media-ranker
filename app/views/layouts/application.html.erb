@@ -10,6 +10,23 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1>Media Ranker</h1>
+      <p>Ranking the Best of Everything</p>
+
+      <nav>
+        <span>View Top Media</span>
+        <span>View All Media</span>
+        <span>Add A New Work</span>
+        <span>View All Users</span>
+        <span>Logged in as Username</span>
+        <span>Log In</span>
+        <span>Log Out</span>
+      </nav>
+    </header>
+    
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
