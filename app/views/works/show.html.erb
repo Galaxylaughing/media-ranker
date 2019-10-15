@@ -1,0 +1,39 @@
+<h2><%= @work.name %></h2>
+<p>Created by: <%= @work.creator %></p>
+
+<p>
+  Published: 
+  <% if !(@work.published_date.nil?) %>
+    <%= @work.published_date %>
+  <% else %>
+    unknown publication date
+  <% end %>
+</p>
+
+<span>
+  <button type="button" class="btn"><%= link_to "Back to Media Ranks", root_path %></button>
+  <button type="button" class="btn"><%= link_to "Edit" %></button>
+  <button type="button" class="btn"><%= link_to "Upvote" %></button>
+  <button type="button" class="btn"><%= link_to "Delete" %></button>
+</span>
+
+<h3><%= @work.votes.count %> Votes for this <%= @work.category.capitalize %></h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">User</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% all_votes = @work.votes %>
+    <% if all_votes %>
+      <% all_votes.each do |vote| %>
+        <tr>
+          <td><%= link_to vote.user.username %></td>
+          <td><%= vote.date %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
