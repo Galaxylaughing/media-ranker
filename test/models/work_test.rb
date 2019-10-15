@@ -70,7 +70,7 @@ describe Work do
   end
   
   describe "find_top_ten" do
-    it "can find the top ten books" do
+    it "can find the top ten works" do
       # nine have two votes
       # one has three votes
       # one has one vote
@@ -84,7 +84,7 @@ describe Work do
       expect(response).wont_include works(:life_mccorkle)
     end
     
-    it "returns an empty list if there are no albums" do
+    it "returns an empty list if there are no works" do
       # remove all albums
       albums = Work.where(category: "album")
       albums.each do |album|
@@ -96,14 +96,20 @@ describe Work do
       expect(response).must_be_empty
     end
     
-    it "returns an empty list if there are no votes" do
+    it "returns a list even if there are no works" do
       response = Work.find_top_ten("album")
       
-      expect(response).must_be_empty
+      expect(response.length).must_equal 10
     end
     
-    it "returns a shorter list if there are fewer votes" do
+    it "returns a shorter list if there are fewer works" do
       movies = Work.where(category: "movie")
+      movies.each do |movie|
+        # keep one movie
+        unless movie.name == "The Hunt for Red October"
+          movie.destroy
+        end
+      end
       
       response = Work.find_top_ten("movie")
       

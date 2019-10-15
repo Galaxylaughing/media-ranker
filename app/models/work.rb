@@ -33,18 +33,19 @@ class Work < ApplicationRecord
     
     top_ten = sorted_list[0..9]
     
-    if top_ten.empty? || top_ten.first.votes.length == 0
-      return []
-    end
+    # if top_ten.empty? || top_ten.first.votes.length == 0
+    #   return []
+    # end
     
-    top_items = []
+    # top_items = []
     
-    top_ten.each do |item|
-      if item.votes.length > 0
-        top_items << item
-      end
-    end
+    # top_ten.each do |item|
+    #   if item.votes.length > 0
+    #     top_items << item
+    #   end
+    # end
     
-    return top_items
+    # return top_items
+    return top_ten
   end
 end
