@@ -1,6 +1,33 @@
 require "test_helper"
 
 describe Work do
+  describe "relationships" do
+    before do
+      @user = User.create(username: "user")
+      @work = Work.create(category: "book", name: "To Kill A Mockingbird", creator: "Harper Lee")
+      @vote = Vote.create(user_id: @user.id, work_id: @work.id)
+    end
+    
+    it "can have a vote" do
+      work = Work.find_by(name: @work.name)
+      
+      expect(work.votes).wont_be_nil
+      expect(work.votes).must_include @vote
+      expect(work.votes.count).must_equal 1
+    end
+    
+    it "can have multiple votes" do
+      new_user = User.create(username: "new user")
+      new_vote = Vote.create(user_id: new_user.id, work_id: @work.id)
+      
+      work = Work.find_by(name: @work.name)
+      
+      expect(work.votes).wont_be_nil
+      expect(work.votes).must_include new_vote
+      expect(work.votes.count).must_equal 2
+    end
+  end
+  
   describe "validations" do
     before do
       @work = Work.new(category: "book", name: "To Kill A Mockingbird", creator: "Harper Lee")
