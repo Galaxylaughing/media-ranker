@@ -102,6 +102,12 @@ describe Work do
       expect(response).must_be_empty
     end
     
-    # what should it do if there's a tie??
+    it "returns a shorter list if there are fewer votes" do
+      movies = Work.where(category: "movie")
+      
+      response = Work.find_top_ten("movie")
+      
+      expect(response.length).must_equal 1
+    end
   end
 end
