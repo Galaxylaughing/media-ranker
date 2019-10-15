@@ -15,17 +15,17 @@
       <p>Ranking the Best of Everything</p>
 
       <nav>
-        <span>View Top Media</span>
-        <span>View All Media</span>
-        <span>Add A New Work</span>
-        <span>View All Users</span>
+        <button type="button" class="btn"><%= link_to "View Top Media", root_path %></button>
+        <button type="button" class="btn"><%= link_to "View All Media", works_path %></button>
+        <button type="button" class="btn"><%= link_to "Add A New Work", new_work_path %></button>
+        <button type="button" class="btn">View All Users</button>
 
         <% current_user = User.find_by(id: session[:user_id]) %>
         <% if current_user %>
-          <span>Logged in as <%= link_to current_user.username, current_user_path %></span>
-          <span><%= link_to "Log Out", logout_path, method: :post%></span>
+          <button type="button" class="btn">Logged in as <%= link_to current_user.username, current_user_path %></button>
+          <button type="button" class="btn"><%= link_to "Log Out", logout_path, method: :post%></button>
         <% else %>
-          <span><%= link_to "Log In", login_path %></span>
+          <button type="button" class="btn"><%= link_to "Log In", login_path %></button>
         <% end %>
       </nav>
     </header>
