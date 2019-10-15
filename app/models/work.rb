@@ -25,4 +25,16 @@ class Work < ApplicationRecord
     
     return max
   end
+  
+  def self.find_top_ten(category)
+    list = Work.where(category: category)
+    
+    ascending_list = list.sort_by{ |item| item.votes.length }
+    
+    descending_list = ascending_list.reverse
+    
+    top_ten = descending_list[0..9]
+    
+    return top_ten
+  end
 end

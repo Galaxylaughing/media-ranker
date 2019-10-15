@@ -1,15 +1,93 @@
-metz_shot:
-  date: October 14 2019
-  user: metz
-  work: shot
+# BOOKS
 scalzi_silver:
   date: October 10 2019
   user: scalzi
   work: silver
+butler_silver:
+  date: October 11 2019
+  user: butler
+  work: silver
+metz_silver:
+  date: October 11 2019
+  user: metz
+  work: silver
 scalzi_murderbot:
   date: October 5 2019
   user: scalzi
-  work: muderbot
+  work: murderbot
+butler_murderbot:
+  date: October 11 2019
+  user: butler
+  work: murderbot
+scalzi_wind:
+  date: October 1 2019
+  user: scalzi
+  work: wind
+butler_wind:
+  date: October 1 2019
+  user: butler
+  work: wind
+scalzi_artificial:
+  date: October 1 2019
+  user: scalzi
+  work: artificial
+butler_artificial:
+  date: October 1 2019
+  user: butler
+  work: artificial
+scalzi_uglies:
+  date: October 11 2019
+  user: scalzi
+  work: uglies
+butler_uglies:
+  date: October 11 2019
+  user: butler
+  work: uglies
+scalzi_illuminae:
+  date: October 11 2019
+  user: scalzi
+  work: illuminae
+butler_illuminae:
+  date: October 11 2019
+  user: butler
+  work: illuminae
+scalzi_devious:
+  date: October 11 2019
+  user: scalzi
+  work: devious
+butler_devious:
+  date: October 11 2019
+  user: butler
+  work: devious
+butler_darius:
+  date: October 12 2019
+  user: butler
+  work: darius
+scalzi_darius:
+  date: October 11 2019
+  user: scalzi
+  work: darius
+butler_indigo:
+  date: October 11 2019
+  user: butler
+  work: indigo
+scalzi_indigo:
+  date: October 11 2019
+  user: scalzi
+  work: indigo
+scalzi_life_atkinson:
+  date: October 11 2019
+  user: scalzi
+  work: life_atkinson
+butler_life_atkinson:
+  date: October 11 2019
+  user: butler
+  work: life_atkinson
+butler_life_mccorkle:
+  date: October 11 2019
+  user: butler
+  work: life_mccorkle
+# MOVIES
 scalzi_october:
   date: October 1 2019
   user: scalzi
@@ -18,7 +96,16 @@ butler_october:
   date: October 11 2019
   user: butler
   work: october
-butler_darius:
-  date: October 12 2019
-  user: butler
-  work: darius
+metz_october:
+  date: October 15 2019
+  user: metz
+  work: october
+sabrina_october:
+  date: October 15 2019
+  user: sabrina
+  work: october
+# ALBUMS
+metz_shot:
+  date: October 14 2019
+  user: metz
+  work: shot

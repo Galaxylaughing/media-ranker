@@ -71,12 +71,19 @@ describe Work do
   
   describe "find_top_ten" do
     it "can find the top ten books" do
+      # nine have two votes
+      # one has three votes
+      # one has one vote
+      response = Work.find_top_ten("book")
+      
+      # should have ten items
+      expect(response.length).must_equal 10
+      # the first should be the book with 3 votes
+      expect(response.first).must_equal works(:silver)
+      # it should not include the book with 1 vote
+      expect(response).wont_include works(:life_mccorkle)
     end
     
-    it "can find the top ten albums" do
-    end
-    
-    it "can find the top ten movies" do
-    end
+    # what should it do if there's a tie??
   end
 end
