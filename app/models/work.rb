@@ -29,23 +29,10 @@ class Work < ApplicationRecord
   def self.find_top_ten(category)
     list = Work.where(category: category)
     
-    sorted_list = list.sort_by{ |item| [item.votes.length * -1, item.published_date] }
+    sorted_list = list.sort_by{ |item| item.votes.length * -1 }
     
     top_ten = sorted_list[0..9]
     
-    # if top_ten.empty? || top_ten.first.votes.length == 0
-    #   return []
-    # end
-    
-    # top_items = []
-    
-    # top_ten.each do |item|
-    #   if item.votes.length > 0
-    #     top_items << item
-    #   end
-    # end
-    
-    # return top_items
     return top_ten
   end
 end
