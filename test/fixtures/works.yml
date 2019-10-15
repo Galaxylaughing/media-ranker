@@ -3,82 +3,82 @@ wind:
   name: Name of the Wind
   creator: Patrick Rothfuss
   description: A good fantasy book
-  published_date: 2007
+  published_date: January 1 2007
 silver:
   category: book
   name: Spinning Silver
   creator: Naomi Novik
   description: A Russian-inspired fantasy
-  published_date: 2018
+  published_date: January 1 2018
 murderbot:
   category: book
   name: All Systems Red
   creator: Martha Wells
   description: A good sci-fi novella
-  published_date: 2017
+  published_date: January 1 2017
 artificial:
   category: book
   name: Artificial Conditions
   creator: Martha Wells
   description: A good sci-fi novella
-  published_date: 2018
+  published_date: January 1 2018
 darius:
   category: book
   name: Darius the Great Is Not Okay
   creator: Adib Khorram
   description: A comedic contemporary YA book about the son of Iranian immigrants reconnecting with his parent's homeland on a family trip
-  published_date: 2018
+  published_date: January 1 2018
 life-mccorkle:
   category: book
   name: Life After Life
   creator: Jill McCorkle
   description: A witty book set at Pine Haven retirement center
-  published_date: 2013
+  published_date: January 1 2013
 life-atkinson:
   category: book
   name: Life After Life
   creator: Kate Atkinson
   description: A dark comedy about a woman who keeps dying over and over again
-  published_date: 2013
+  published_date: January 1 2013
 october:
   category: movie
   name: The Hunt for Red October
   creator: John McTiernan
   description: Cold War spy thriller with submarines
-  published_date: 1990
+  published_date: January 1 1990
 balcony:
   category: movie
   name: The Women's Balcony
   creator: Emil Ben-Shimon
   description: Israeli comedy film
-  published_date: 2016
+  published_date: January 1 2016
 name:
   category: movie
   name: Your Name
   creator: Makoto Shinkai
   description: Animated Japanese film. You should see it. No spoilers. Just trust me
-  published_date: 2017
+  published_date: January 1 2017
 noteworthy:
   category: album
   name: The Noteworthy Life of Howard Barnes
   creator: Village Theater
   description: The music from the musical
-  published_date: 2018
+  published_date: January 1 2018
 stormfront:
   category: album
   name: Storm Front
   creator: Billy Joel
   description: A cool album
-  published_date: 1989
+  published_date: January 1 1989
 shot:
   category: album
   name: Best Shot
   creator: Pat Benatar
   description: Another cool album
-  published_date: 1989
+  published_date: January 1 1989
 america:
   category: album
   name: America's Greatest Hits
   creator: America
   description: One of their greatest hits is 'Muskrat Love'
-  published_date: 1975
+  published_date: January 1 1975
