@@ -157,3 +157,45 @@ america:
   creator: America
   description: One of their greatest hits is 'Muskrat Love'
   published_date: January 1 1975
+life:
+  category: album
+  name: Oh, What a Life
+  creator: American Authors
+  description: Another cool album
+  published_date: January 1 2014
+capsule:
+  category: album
+  name: Time Capsule - Songs for a Future Generation
+  creator: The B-52's
+  description: Another cool album
+  published_date: January 1 1998
+help:
+  category: album
+  name: Help!
+  creator: The Beatles
+  description: Another cool album
+  published_date: January 1 1965
+plastic:
+  category: album
+  name: The Age of Plastic
+  creator: The Buggles
+  description: Welcome to the plastic age
+  published_date: January 1 2001
+remember:
+  category: album
+  name: A Night to Remember
+  creator: Cyndi Lauper
+  description: like a cat
+  published_date: January 1 1989
+ophelia:
+  category: album
+  name: Swamp Ophelia
+  creator: Indigo Girls
+  description: Another cool album
+  published_date: January 1 1994
+hermits:
+  category: album
+  name: The Very Best of Herman's Hermits
+  creator: Herman's Hermits
+  description: my sentimental friend over there 
+  published_date: January 1 1970
