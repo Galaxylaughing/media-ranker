@@ -8,4 +8,6 @@ class Work < ApplicationRecord
   validates_uniqueness_of :name, scope: :creator
   validates :category, presence: true
   
+  def find_highest_voted
+  end
 end
