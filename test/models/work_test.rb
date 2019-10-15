@@ -3,7 +3,7 @@ require "test_helper"
 describe Work do
   describe "relationships" do
     before do
-      @user = User.create(username: "user")
+      @user = User.create(username: "user", date_joined: Date.today)
       @work = Work.create(category: "book", name: "To Kill A Mockingbird", creator: "Harper Lee")
       @vote = Vote.create(user_id: @user.id, work_id: @work.id)
     end
@@ -17,7 +17,7 @@ describe Work do
     end
     
     it "can have multiple votes" do
-      new_user = User.create(username: "new user")
+      new_user = User.create(username: "new user", date_joined: Date.today)
       new_vote = Vote.create(user_id: new_user.id, work_id: @work.id)
       
       work = Work.find_by(name: @work.name)
