@@ -58,14 +58,14 @@ describe Work do
       expect(highest_voted).must_equal works(:october)
     end
     
-    it "returns nil if there are no votes" do
+    it "returns a work if there are no votes" do
       Vote.all.each do |vote|
         vote.destroy
       end
       
       highest_voted = Work.find_highest_voted()
       
-      expect(highest_voted).must_be_nil
+      expect(highest_voted).wont_be_nil
     end
   end
   

@@ -20,7 +20,7 @@ class Work < ApplicationRecord
     end
     
     if max.votes.length == 0
-      return nil
+      return Work.all.sample
     end
     
     return max
