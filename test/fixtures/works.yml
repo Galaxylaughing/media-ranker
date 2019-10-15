@@ -1,3 +1,4 @@
+# BOOKS
 wind:
   category: book
   name: Name of the Wind
@@ -22,6 +23,12 @@ artificial:
   creator: Martha Wells
   description: A good sci-fi novella
   published_date: January 1 2018
+uglies:
+  category: book
+  name: Uglies
+  creator: Scott Westerfeld
+  description: A good sci-fi YA book
+  published_date: January 1 2005
 darius:
   category: book
   name: Darius the Great Is Not Okay
@@ -40,6 +47,25 @@ life_atkinson:
   creator: Kate Atkinson
   description: A dark comedy about a woman who keeps dying over and over again
   published_date: January 1 2013
+devious:
+  category: book
+  name: Truly Devious
+  creator: Maureen Johnson
+  description: A YA mystery
+  published_date: January 1 2018
+indigo:
+  category: book
+  name: Indigo Girl
+  creator: Natasha Boyd
+  description: A historical fiction novel
+  published_date: January 1 2017
+illuminae:
+  category: book
+  name: Illuminae
+  creator: Amie Kaufman
+  description: A great science fiction story
+  published_date: January 1 2016
+# MOVIES
 october:
   category: movie
   name: The Hunt for Red October
@@ -58,6 +84,7 @@ name:
   creator: Makoto Shinkai
   description: Animated Japanese film. You should see it. No spoilers. Just trust me
   published_date: January 1 2017
+# ALBUMS
 noteworthy:
   category: album
   name: The Noteworthy Life of Howard Barnes

@@ -68,4 +68,15 @@ describe Work do
       expect(highest_voted).must_be_nil
     end
   end
+  
+  describe "find_top_ten" do
+    it "can find the top ten books" do
+    end
+    
+    it "can find the top ten albums" do
+    end
+    
+    it "can find the top ten movies" do
+    end
+  end
 end
