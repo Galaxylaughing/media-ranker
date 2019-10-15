@@ -1,0 +1,21 @@
+<section>
+  <h2>List of Works</h2>
+
+  <section>
+    <h3>Movies</h3>
+    <%= render partial: "table", locals: { category: "movie"} %>
+  </section>
+
+  <section>
+    <h3>Books</h3>
+    <%= render partial: "table", locals: { category: "book"} %>
+  </section>
+
+  <section>
+    <h3>Albums</h3>
+    <%= render partial: "table", locals: { category: "album"} %>
+  </section>
+</section>
+
+<button type="button" class="btn"><%= link_to "View Top Media", root_path %></button>
+<button type="button" class="btn"><%= link_to "Add a New Work" %></button>
