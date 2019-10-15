@@ -52,7 +52,20 @@ describe Work do
   end
   
   describe "find_highest_voted" do
-    it "finds the work with the most votes" do
+    it "finds the work with the most votes" do     
+      highest_voted = Work.find_highest_voted()
+      
+      expect(highest_voted).must_equal works(:october)
+    end
+    
+    it "returns nil if there are no votes" do
+      Vote.all.each do |vote|
+        vote.destroy
+      end
+      
+      highest_voted = Work.find_highest_voted()
+      
+      expect(highest_voted).must_be_nil
     end
   end
 end

@@ -8,6 +8,21 @@ class Work < ApplicationRecord
   validates_uniqueness_of :name, scope: :creator
   validates :category, presence: true
   
-  def find_highest_voted
+  def self.find_highest_voted 
+    works_list = Work.all
+    
+    max = Work.first
+    
+    works_list.each do |work|
+      if work.votes.length > max.votes.length
+        max = work
+      end
+    end
+    
+    if max.votes.length == 0
+      return nil
+    end
+    
+    return max
   end
 end
