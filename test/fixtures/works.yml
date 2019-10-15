@@ -28,13 +28,13 @@ darius:
   creator: Adib Khorram
   description: A comedic contemporary YA book about the son of Iranian immigrants reconnecting with his parent's homeland on a family trip
   published_date: January 1 2018
-life-mccorkle:
+life_mccorkle:
   category: book
   name: Life After Life
   creator: Jill McCorkle
   description: A witty book set at Pine Haven retirement center
   published_date: January 1 2013
-life-atkinson:
+life_atkinson:
   category: book
   name: Life After Life
   creator: Kate Atkinson

@@ -1,16 +1,20 @@
-metz-shot:
+metz_shot:
   date: October 14 2019
   user: metz
   work: shot
-scalzi-silver:
+scalzi_silver:
   date: October 10 2019
   user: scalzi
   work: silver
-scalzi-murderbot:
+scalzi_murderbot:
   date: October 5 2019
   user: scalzi
   work: muderbot
-butler-darius:
+scalzi_october:
+  date: October 1 2019
+  user: scalzi
+  work: murderbot
+butler_darius:
   date: October 12 2019
   user: butler
   work: darius
