@@ -14,4 +14,27 @@ class WorksController < ApplicationController
     end
   end
   
+  def new
+    @work = Work.new
+  end
+  
+  def create
+    @work = Work.new(work_params)
+    
+    if @work.save
+      flash[:success] = "Book added successfully"
+      redirect_to work_path(@work.id)
+      return
+    else
+      flash.now[:failure] = "Media failed to save"
+      render :new
+    end
+  end
+  
+  private
+  
+  def work_params
+    return params.require(:work).permit(:category, :name, :creator, :published_date, :description)
+  end
+  
 end
