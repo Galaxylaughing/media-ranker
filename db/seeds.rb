@@ -31,3 +31,399 @@ end
 
 puts "Added #{Work.count} media records"
 puts "#{media_failures.length} works failed to save"
+
+
+# works_data = [
+#   {
+#     category: "book",
+#     name: "The Name of the Wind",
+#     creator: "Patrick Rothfuss",
+#     description: "A good fantasy book",
+#     published_date: "January 1 2007"
+#   },
+#   {
+#     category: "book",
+#     name: "Spinning Silver",
+#     creator: "Naomi Novik",
+#     description: "A Russian-inspired fantasy",
+#     published_date: "January 1 2018"
+#   },
+#   {
+#     category: "book",
+#     name: "All Systems Red",
+#     creator: "Martha Wells",
+#     description: "A good sci-fi novella",
+#     published_date: "January 1 2017"
+#   },
+#   {
+#     category: "book",
+#     name: "Artificial Condition",
+#     creator: "Martha Wells",
+#     description: "A good sci-fi novella",
+#     published_date: "January 1 2018"
+#   },
+#   {
+#     category: "book",
+#     name: "Uglies",
+#     creator: "Scott Westerfeld",
+#     description: "A good sci-fi YA book",
+#     published_date: "January 1 2005"
+#   },
+#   {
+#     category: "book",
+#     name: "Darius the Great Is Not Okay",
+#     creator: "Adib Khorram",
+#     description: "A comedic contemporary YA book about the son of Iranian immigrants reconnecting with his parent's homeland on a family trip",
+#     published_date: "January 1 2018"
+#   },
+#   {
+#     category: "book",
+#     name: "Life After Life",
+#     creator: "Jill McCorkle",
+#     description: "A witty book set at Pine Haven retirement center",
+#     published_date: "January 1 2013"
+#   },
+#   {
+#     category: "book",
+#     name: "Life After Life",
+#     creator: "Kate Atkinson",
+#     description: "A dark comedy about a woman who keeps dying over and over again",
+#     published_date: "January 1 2013"
+#   },
+#   {
+#     category: "book",
+#     name: "Truly Devious",
+#     creator: "Maureen Johnson",
+#     description: "A YA mystery",
+#     published_date: "January 1 2018"
+#   },
+#   {
+#     category: "book",
+#     name: "Indigo Girl",
+#     creator: "Natasha Boyd",
+#     description: "A historical fiction novel",
+#     published_date: "January 1 2017"
+#   },
+#   {
+#     category: "book",
+#     name: "Illuminae",
+#     creator: "Amie Kaufman",
+#     description: "A great science fiction story",
+#     published_date: "January 1 2016"
+#   },
+#   {
+#     category: "movie",
+#     name: "The Hunt for Red October",
+#     creator: "John McTiernan",
+#     description: "Cold War spy thriller with submarines",
+#     published_date: "January 1 1990"
+#   },
+#   {
+#     category: "movie",
+#     name: "The Women's Balcony",
+#     creator: "Emil Ben-Shimon",
+#     description: "Israeli comedy film",
+#     published_date: "January 1 2016"
+#   },
+#   {
+#     category: "movie",
+#     name: "Your Name",
+#     creator: "Makoto Shinkai",
+#     description: "Animated Japanese film. You should see it. No spoilers. Just trust me",
+#     published_date: "January 1 2017"
+#   },
+#   {
+#     category: "movie",
+#     name: "Castle in the Sky",
+#     creator: "Hayao Miyazaki",
+#     description: "Animated sci-fi movie",
+#     published_date: "January 1 1986"
+#   },
+#   {
+#     category: "movie",
+#     name: "Spirited Away",
+#     creator: "Hayao Miyazaki",
+#     description: "Animated fantasy (urban fantasy?) movie",
+#     published_date: "January 1 2001"
+#   },
+#   {
+#     category: "movie",
+#     name: "A New Hope",
+#     creator: "George Lucas",
+#     description: "star warssss. the one with the double-sun shot.",
+#     published_date: "January 1 1977"
+#   },
+#   {
+#     category: "movie",
+#     name: "The Empire Strikes Back",
+#     creator: "George Lucas",
+#     description: "star warssss. the one with the ice planet",
+#     published_date: "January 1 1980"
+#   },
+#   {
+#     category: "movie",
+#     name: "Return of the Jedi",
+#     creator: "George Lucas",
+#     description: "star warssss. the one with the ewoks",
+#     published_date: "January 1 1983"
+#   },
+#   {
+#     category: "movie",
+#     name: "Chitty Chitty Bang Bang",
+#     creator: "Ken Hughes",
+#     description: "A fantasy musical. A wild ride",
+#     published_date: "January 1 1986"
+#   },
+#   {
+#     category: "movie",
+#     name: "Monsters, Inc.",
+#     creator: "Pete Doctor",
+#     description: "A classic",
+#     published_date: "January 1 2001"
+#   },
+#   {
+#     category: "album",
+#     name: "The Noteworthy Life of Howard Barnes",
+#     creator: "Village Theater",
+#     description: "The music from the musical",
+#     published_date: "January 1 2018"
+#   },
+#   {
+#     category: "album",
+#     name: "Storm Front",
+#     creator: "Billy Joel",
+#     description: "A cool album",
+#     published_date: "January 1 1989"
+#   },
+#   {
+#     category: "album",
+#     name: "Best Shot",
+#     creator: "Pat Benatar",
+#     description: "Another cool album",
+#     published_date: "January 1 1989"
+#   },
+#   {
+#     category: "album",
+#     name: "America's Greatest Hits",
+#     creator: "America",
+#     description: "One of their greatest hits is 'Muskrat Love'",
+#     published_date: "January 1 1975"
+#   },
+#   {
+#     category: "album",
+#     name: "Oh, What a Life",
+#     creator: "American Authors",
+#     description: "Another cool album",
+#     published_date: "January 1 2014"
+#   },
+#   {
+#     category: "album",
+#     name: "Time Capsule - Songs for a Future Generation",
+#     creator: "The B-52's",
+#     description: "Another cool album",
+#     published_date: "January 1 1998"
+#   },
+#   {
+#     category: "album",
+#     name: "Help!",
+#     creator: "The Beatles",
+#     description: "Another cool album",
+#     published_date: "January 1 1965"
+#   },
+#   {
+#     category: "album",
+#     name: "The Age of Plastic",
+#     creator: "The Buggles",
+#     description: "Welcome to the plastic age",
+#     published_date: "January 1 2001"
+#   },
+#   {
+#     category: "album",
+#     name: "A Night to Remember",
+#     creator: "Cyndi Lauper",
+#     description: "like a cat",
+#     published_date: "January 1 1989"
+#   },
+#   {
+#     category: "album",
+#     name: "Swamp Ophelia",
+#     creator: "Indigo Girls",
+#     description: "Another cool album",
+#     published_date: "January 1 1994"
+#   },
+#   {
+#     category: "album",
+#     name: "The Very Best of Herman's Hermits",
+#     creator: "Herman's Hermits",
+#     description: "my sentimental friend over there...",
+#     published_date: "January 1 1970"
+#   }
+# ]
+
+# work_failures = []
+# new_works = []
+# works_data.each do |new_work|
+#   new_work = Work.new
+#   new_work.category = new_work[:category]
+#   new_work.name = new_work[:name]
+#   new_work.creator = new_work[:creator]
+#   new_work.description = new_work[:description]
+#   new_work.published_date = new_work[:published_date]
+
+#   successful = new_work.save
+#   if !successful
+#     work_failures << new_work
+#     puts "Failed to save work: #{new_work.inspect}"
+#   else
+#     new_works << new_work
+#     puts "Created work: #{new_work.inspect}"
+#   end
+# end
+
+# puts "Added #{new_works.count} work records"
+# puts "(Added #{Work.count} TOTAL work records)"
+# puts "#{work_failures.length} works failed to save"
+
+
+# users_data = [
+#   {
+#     username: "sandi_metz",
+#     date_joined: "october 13 2019"
+#   },
+#   {
+#     username: "octavia_butler",
+#     date_joined: "october 14 2019"
+#   },
+#   {
+#     username: "john_scalzi",
+#     date_joined: "october 15 2019"
+#   }
+# ]
+
+# user_failures = []
+# users_data.each do |new_user|
+#   new_user = User.new
+#   new_user.username = new_user[:username]
+#   new_user.date_joined = new_user[:date_joined]
+
+#   successful = new_user.save
+#   if !successful
+#     user_failures << new_user
+#     puts "Failed to save user: #{new_user.inspect}"
+#   else
+#     puts "Created user: #{new_user.inspect}"
+#   end
+# end
+
+# puts "Added #{User.count} user records"
+# puts "#{user_failures.length} users failed to save"
+
+
+# votes_data = [
+#   {
+#     user_id: User.find_by(username: "john_scalzi"),
+#     work_id: Work.find_by(name: "Spinning Silver")
+#   },
+#   {
+#     user_id: User.find_by(username: "octavia_butler"),
+#     work_id: Work.find_by(name: "Spinning Silver")
+#   },
+#   {
+#     user_id: User.find_by(username: "sandi_metz"),
+#     work_id: Work.find_by(name: "Spinning Silver")
+#   },
+#   {
+#     user_id: User.find_by(username: "john_scalzi"),
+#     work_id: Work.find_by(name: "All Systems Red")
+#   },
+#   {
+#     user_id: User.find_by(username: "octavia_butler"),
+#     work_id: Work.find_by(name: "All Systems Red")
+#   },
+#   {
+#     user_id: User.find_by(username: "john_scalzi"),
+#     work_id: Work.find_by(name: "The Name of the Wind")
+#   },
+#   {
+#     user_id: User.find_by(username: "octavia_butler"),
+#     work_id: Work.find_by(name: "The Name of the Wind")
+#   },
+#   {
+#     user_id: User.find_by(username: "john_scalzi"),
+#     work_id: Work.find_by(name: "Artificial Condition")
+#   },
+#   {
+#     user_id: User.find_by(username: "octavia_butler"),
+#     work_id: Work.find_by(name: "Artificial Condition")
+#   },
+#   {
+#     user_id: User.find_by(username: "john_scalzi"),
+#     work_id: Work.find_by(name: "Uglies")
+#   },
+#   {
+#     user_id: User.find_by(username: "octavia_butler"),
+#     work_id: Work.find_by(name: "Uglies")
+#   },
+#   {
+#     user_id: User.find_by(username: "john_scalzi"),
+#     work_id: Work.find_by(name: "Illuminae")
+#   },
+#   {
+#     user_id: User.find_by(username: "octavia_butler"),
+#     work_id: Work.find_by(name: "Illuminae")
+#   },
+#   {
+#     user_id: User.find_by(username: "john_scalzi"),
+#     work_id: Work.find_by(name: "Darius the Great Is Not Okay")
+#   },
+#   {
+#     user_id: User.find_by(username: "octavia_butler"),
+#     work_id: Work.find_by(name: "Darius the Great Is Not Okay")
+#   },
+#   {
+#     user_id: User.find_by(username: "john_scalzi"),
+#     work_id: Work.find_by(name: "Truly Devious")
+#   },
+#   {
+#     user_id: User.find_by(username: "octavia_butler"),
+#     work_id: Work.find_by(name: "Truly Devious")
+#   },
+#   {
+#     user_id: User.find_by(username: "john_scalzi"),
+#     work_id: Work.find_by(name: "Indigo Girl")
+#   },
+#   {
+#     user_id: User.find_by(username: "octavia_butler"),
+#     work_id: Work.find_by(name: "Indigo Girl")
+#   },
+#   {
+#     user_id: User.find_by(username: "john_scalzi"),
+#     work_id: Work.find_by(name: "The Hunt for Red October")
+#   },
+#   {
+#     user_id: User.find_by(username: "octavia_butler"),
+#     work_id: Work.find_by(name: "The Hunt for Red October")
+#   },
+#   {
+#     user_id: User.find_by(username: "sandi_metz"),
+#     work_id: Work.find_by(name: "The Hunt for Red October")
+#   }
+# ]
+
+# vote_failures = []
+# votes_data.each do |new_vote|
+#   new_vote = Vote.new
+#   new_vote.user_id = new_vote[:user_id]
+#   new_vote.work_id = new_vote[:work_id]
+
+#   successful = new_vote.save
+#   if !successful
+#     vote_failures << new_vote
+#     puts "Failed to save vote: #{new_vote.inspect}"
+#   else
+#     puts "Created vote: #{new_vote.inspect}"
+#   end
+# end
+
+# puts "Added #{Vote.count} vote records"
+# puts "#{vote_failures.length} vote failed to save"
