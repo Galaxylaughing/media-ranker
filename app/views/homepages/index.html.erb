@@ -14,48 +14,9 @@
 </section>
 
 <article class="top-ten">
-  <section>
-    <h2>
-      Top Movies
-    </h2>
+  <%= render partial: "topmedia", locals: { action_category: "movie", action_title: "Movies"} %>
 
-    <% top_movies = Work.find_top_ten("movie") %>
-    <% top_movies.each do |top_movie| %>
-      <p>
-        <span><%= link_to top_movie.name, work_path(top_movie.id) %></span>
-        <span>by <%= top_movie.creator %></span>
-        <div class="num_votes"><%= top_movie.votes.count %> votes</div>
-      </p>
-    <% end %>
-  </section>
+  <%= render partial: "topmedia", locals: { action_category: "book", action_title: "Books"} %>
 
-  <section>
-    <h2>
-      Top Books
-    </h2>
-
-    <% top_books = Work.find_top_ten("book") %>
-    <% top_books.each do |top_book| %>
-      <p>
-        <span><%= link_to top_book.name, work_path(top_book.id) %></span>
-        <span>by <%= top_book.creator %></span>
-        <div class="num_votes"><%= top_book.votes.count %> votes</div>
-      </p>
-    <% end %>
-  </section>
-
-  <section>
-    <h2>
-      Top Albums
-    </h2>
-
-    <% top_albums = Work.find_top_ten("album") %>
-    <% top_albums.each do |top_album| %>
-      <p>
-        <span><%= link_to top_album.name, work_path(top_album.id) %></span>
-        <span>by <%= top_album.creator %></span>
-        <div class="num_votes"><%= top_album.votes.count %> votes</div>
-      </p>
-    <% end %>
-  </section>
+  <%= render partial: "topmedia", locals: { action_category: "album", action_title: "Album"} %>
 </article>
