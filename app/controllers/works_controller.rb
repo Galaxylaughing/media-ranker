@@ -22,6 +22,7 @@ class WorksController < ApplicationController
     else
       flash.now[:failure] = "Media failed to save"
       render :new
+      return
     end
   end
   
