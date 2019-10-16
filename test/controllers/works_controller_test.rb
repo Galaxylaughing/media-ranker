@@ -1,7 +1,13 @@
 require "test_helper"
 
 describe WorksController do
-  # it "does a thing" do
-  #   value(1+1).must_equal 2
-  # end
+  describe "index" do
+    it "can get the work index" do
+      get works_path
+      
+      must_respond_with :success
+    end
+  end
+  
+  
 end
