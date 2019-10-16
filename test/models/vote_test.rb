@@ -24,7 +24,7 @@ describe Vote do
       expect(@vote.valid?).must_equal true
     end
     
-    it "is valid with a duplicate usr but unique work" do
+    it "is valid with a duplicate user but unique work" do
       new_work = works(:ophelia)
       new_vote = Vote.create(user_id: @vote.user_id, work_id: new_work.id)
       
