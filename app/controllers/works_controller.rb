@@ -1,18 +1,12 @@
 class WorksController < ApplicationController
+  before_action :find_work, only: [:show, :edit, :update]
+  before_action :if_work_missing, only: [:show, :edit, :update]
+  
   def index
     @works = Work.all
   end
   
-  def show
-    work_id = params[:id]
-    @work = Work.find_by(id: work_id)
-    
-    if @work.nil?
-      flash[:error] = "Could not find media with id: #{work_id}"
-      redirect_to works_path
-      return
-    end
-  end
+  def show ; end
   
   def new
     @work = Work.new
@@ -28,29 +22,14 @@ class WorksController < ApplicationController
     else
       flash.now[:failure] = "Media failed to save"
       render :new
-    end
-  end
-  
-  def edit
-    work_id = params[:id]
-    @work = Work.find_by(id: work_id)
-    
-    if @work.nil?
-      flash[:error] = "Could not find media with id: #{work_id}"
-      redirect_to works_path
       return
     end
   end
+  
+  def edit ; end
   
   def update
-    work_id = params[:id]
-    @work = Work.find_by(id: work_id)
-    
-    if @work.nil?
-      flash[:error] = "Could not find media with id: #{work_id}"
-      redirect_to works_path
-      return
-    elsif params.nil? || params[:work].nil? || params[:work].empty?
+    if params.nil? || params[:work].nil? || params[:work].empty?
       flash[:failure] = "Invalid Media Attributes"
       render :edit
       return
@@ -72,6 +51,18 @@ class WorksController < ApplicationController
       return params.require(:work).permit(:category, :name, :creator, :published_date, :description)
     else
       return nil
+    end
+  end
+  
+  def find_work
+    @work = Work.find_by(id: params[:id])
+  end
+  
+  def if_work_missing
+    if @work.nil?
+      flash[:error] = "Could not find media with id: #{params[:id]}"
+      redirect_to works_path
+      return
     end
   end
   
