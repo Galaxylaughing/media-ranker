@@ -11,6 +11,12 @@ class VotesController < ApplicationController
     
     user_id = session[:user_id]
     
+    unless user_id
+      flash[:error] = "You must log in to vote"
+      redirect_back(fallback_location: works_path)
+      return
+    end
+    
     existing_votes = Vote.find_by(user_id: user_id, work_id: work_id)
     if existing_votes
       flash[:error] = "Could not upvote"

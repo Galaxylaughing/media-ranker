@@ -33,7 +33,11 @@
     <main>
       <section class="flash">
         <% flash.each do |name, message| %>
-          <div><%= name %> : <%= message %></div>
+          <% if name == "error" %>
+            <div>A problem occurred: <%= message %></div>
+          <% else %>
+            <div><%= name %> : <%= message %></div>
+          <% end %>
         <% end %>
       </section>
 
