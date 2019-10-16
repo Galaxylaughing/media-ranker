@@ -35,6 +35,8 @@
         <% flash.each do |name, message| %>
           <% if name == "error" %>
             <div>A problem occurred: <%= message %></div>
+          <% elsif name == "success" %>
+            <div><%= message %></div>
           <% else %>
             <div><%= name %> : <%= message %></div>
           <% end %>
