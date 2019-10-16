@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   resources :works, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   
   resources :works do
-    resources :votes, only: [:create]
+    post '/upvote', to: "votes#upvote", as: "upvote"
   end
 end
