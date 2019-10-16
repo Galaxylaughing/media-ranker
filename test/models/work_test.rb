@@ -84,6 +84,19 @@ describe Work do
       expect(response).wont_include works(:life_mccorkle)
     end
     
+    it "sorts descending by publication date if there's a tie for votes" do
+      response = Work.find_top_ten("book")
+      
+      # expect that the second book would be works(:artificial)
+      expect(response[1]).must_equal works(:artificial)
+    end
+    
+    it "sorts descending by record id if there's a tie for votes and publication" do
+      response = Work.find_top_ten("book")
+      
+      expect(response[2]).must_equal works(:darius)
+    end
+    
     it "returns an empty list if there are no works" do
       # remove all albums
       albums = Work.where(category: "album")
