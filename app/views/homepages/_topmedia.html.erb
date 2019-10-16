@@ -1,14 +1,14 @@
 <section>
-    <h2>
-      Top <%= action_title %>
-    </h2>
+  <h2>
+    Top <%= action_title %>
+  </h2>
 
-    <% top_works = Work.find_top_ten(action_category) %>
-    <% top_works.each do |top_work| %>
-      <p>
-        <span><%= link_to top_work.name, work_path(top_work.id) %></span>
-        <span>by <%= top_work.creator %></span>
-        <div class="num_votes"><%= top_work.votes.count %> votes</div>
-      </p>
-    <% end %>
-  </section>
+  <% top_works = Work.find_top_ten(action_category) %>
+  <% top_works.each do |top_work| %>
+    <p>
+      <span><%= link_to top_work.name, work_path(top_work.id) %></span>
+      <span>by <%= top_work.creator %></span>
+      <div class="num_votes"><%= top_work.votes.count %> votes</div>
+    </p>
+  <% end %>
+</section>
