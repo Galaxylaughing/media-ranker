@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   get "/users/current", to: "users#current", as: "current_user"
   
   resources :works, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  
+  resources :works do
+    resources :votes, only: [:create]
+  end
 end
