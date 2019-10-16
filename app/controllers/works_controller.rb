@@ -1,17 +1,12 @@
 class WorksController < ApplicationController
   before_action :find_work, only: [:show, :edit, :update]
+  before_action :if_work_missing, only: [:show, :edit, :update]
   
   def index
     @works = Work.all
   end
   
-  def show  
-    if @work.nil?
-      flash[:error] = "Could not find media with id: #{params[:id]}"
-      redirect_to works_path
-      return
-    end
-  end
+  def show ; end
   
   def new
     @work = Work.new
@@ -30,20 +25,10 @@ class WorksController < ApplicationController
     end
   end
   
-  def edit
-    if @work.nil?
-      flash[:error] = "Could not find media with id: #{params[:id]}"
-      redirect_to works_path
-      return
-    end
-  end
+  def edit ; end
   
   def update
-    if @work.nil?
-      flash[:error] = "Could not find media with id: #{params[:id]}"
-      redirect_to works_path
-      return
-    elsif params.nil? || params[:work].nil? || params[:work].empty?
+    if params.nil? || params[:work].nil? || params[:work].empty?
       flash[:failure] = "Invalid Media Attributes"
       render :edit
       return
@@ -70,6 +55,14 @@ class WorksController < ApplicationController
   
   def find_work
     @work = Work.find_by(id: params[:id])
+  end
+  
+  def if_work_missing
+    if @work.nil?
+      flash[:error] = "Could not find media with id: #{params[:id]}"
+      redirect_to works_path
+      return
+    end
   end
   
 end
