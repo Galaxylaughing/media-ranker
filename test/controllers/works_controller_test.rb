@@ -149,4 +149,29 @@ describe WorksController do
     end
   end
   
+  describe "destroy" do
+    it "removes the work from the database" do
+      work = works(:hermits)
+      
+      expect {
+        delete work_path(work.id)
+      }.must_change "Work.count", -1
+      
+      deleted_work = Work.find_by(id: work.id)
+      expect(deleted_work).must_be_nil
+      
+      expect(flash[:success]).must_equal "'The Very Best of Herman's Hermits' deleted successfully"
+      must_redirect_to works_path
+    end
+    
+    it "redirects when the work is not found" do
+      expect {
+        delete work_path(-1)
+      }.wont_change "Work.count"
+      
+      expect(flash[:error]).must_equal "Could not find media with id: -1"
+      must_redirect_to works_path
+    end
+  end
+  
 end
