@@ -17,7 +17,7 @@ CSV.foreach(MEDIA_FILE, :headers => true) do |row|
   work.category = row['category']
   work.name = row['title']
   work.creator = row['creator']
-  work.published_date = row['publication_year']
+  work.published_date = (row['publication_year'] + "-01-01")
   work.description = row['description']
   
   successful = work.save
