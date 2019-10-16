@@ -43,7 +43,7 @@ describe Vote do
       expect(@vote.valid?).must_equal false
     end
     
-    it "is invalid without a unique work-usr combination" do
+    it "is invalid without a unique work-user combination" do
       new_vote = Vote.create(user_id: @vote.user_id, work_id: @vote.work_id)
       
       expect(@vote.valid?).must_equal false
