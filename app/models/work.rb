@@ -31,7 +31,9 @@ class Work < ApplicationRecord
     
     sorted_list = list.sort { |a, b|
       r = (b.votes.length <=> a.votes.length)
-      r = (b.published_date <=> a.published_date) if (r == 0)
+      if r == 0 && b.published_date && a.published_date
+        r = (b.published_date <=> a.published_date)
+      end
       r = (b.id <=> a.id) if (r == 0)
       r
     }
