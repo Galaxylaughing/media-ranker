@@ -1,14 +1,13 @@
 class WorksController < ApplicationController
+  before_action :find_work, only: [:show, :edit, :update]
+  
   def index
     @works = Work.all
   end
   
-  def show
-    work_id = params[:id]
-    @work = Work.find_by(id: work_id)
-    
+  def show  
     if @work.nil?
-      flash[:error] = "Could not find media with id: #{work_id}"
+      flash[:error] = "Could not find media with id: #{params[:id]}"
       redirect_to works_path
       return
     end
@@ -32,22 +31,16 @@ class WorksController < ApplicationController
   end
   
   def edit
-    work_id = params[:id]
-    @work = Work.find_by(id: work_id)
-    
     if @work.nil?
-      flash[:error] = "Could not find media with id: #{work_id}"
+      flash[:error] = "Could not find media with id: #{params[:id]}"
       redirect_to works_path
       return
     end
   end
   
   def update
-    work_id = params[:id]
-    @work = Work.find_by(id: work_id)
-    
     if @work.nil?
-      flash[:error] = "Could not find media with id: #{work_id}"
+      flash[:error] = "Could not find media with id: #{params[:id]}"
       redirect_to works_path
       return
     elsif params.nil? || params[:work].nil? || params[:work].empty?
@@ -73,6 +66,10 @@ class WorksController < ApplicationController
     else
       return nil
     end
+  end
+  
+  def find_work
+    @work = Work.find_by(id: params[:id])
   end
   
 end
