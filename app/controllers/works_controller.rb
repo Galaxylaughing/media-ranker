@@ -42,10 +42,37 @@ class WorksController < ApplicationController
     end
   end
   
+  def update
+    work_id = params[:id]
+    @work = Work.find_by(id: work_id)
+    
+    if @work.nil?
+      flash[:error] = "Could not find media with id: #{work_id}"
+      redirect_to works_path
+      return
+    elsif params.nil? || params[:work].nil? || params[:work].empty?
+      flash[:failure] = "Invalid Media Attributes"
+      render :edit
+      return
+    elsif @work.update(work_params)
+      flash[:success] = "#{@work.name.capitalize} added successfully"
+      redirect_to work_path(@work.id)
+      return
+    else
+      flash[:failure] = "Media failed to save"
+      render :edit
+      return
+    end
+  end
+  
   private
   
   def work_params
-    return params.require(:work).permit(:category, :name, :creator, :published_date, :description)
+    if params[:work]
+      return params.require(:work).permit(:category, :name, :creator, :published_date, :description)
+    else
+      return nil
+    end
   end
   
 end

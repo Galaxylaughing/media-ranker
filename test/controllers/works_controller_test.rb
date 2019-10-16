@@ -91,4 +91,62 @@ describe WorksController do
     end
   end
   
+  describe "update" do
+    it "can update an existing work" do
+      work = works(:october)
+      
+      work_hash = {
+        work: {
+          category: "album",
+          description: "the score from the movie"
+        }
+      }
+      
+      expect {
+        patch work_path(work.id), params: work_hash
+      }.wont_change "Work.count"
+      
+      updated_work = Work.find_by(id: work.id)
+      
+      expect(updated_work.category).must_equal work_hash[:work][:category]
+      expect(updated_work.description).must_equal work_hash[:work][:description]
+      
+      # the unmodified fields should be the same
+      expect(updated_work.name).must_equal work.name
+      expect(updated_work.creator).must_equal work.creator
+      expect(updated_work.published_date).must_equal work.published_date
+      
+      must_redirect_to work_path(updated_work.id)
+    end
+    
+    it "redirects for an invalid work path" do
+      patch work_path(-1)
+      
+      expect(flash[:error]).must_equal "Could not find media with id: -1"
+      must_redirect_to works_path
+    end
+    
+    it "wont update with invalid attributes" do
+      work = works(:october)
+      
+      work_hash = {
+        work: {}
+      }
+      
+      expect {
+        patch work_path(work.id), params: work_hash
+      }.wont_change "Work.count"
+      
+      expect(flash[:failure]).must_equal "Invalid Media Attributes"
+      # test render??
+      
+      unchanged_work = Work.find_by(id: work.id)
+      expect(unchanged_work.category).must_equal work.category
+      expect(unchanged_work.name).must_equal work.name
+      expect(unchanged_work.creator).must_equal work.creator
+      expect(unchanged_work.description).must_equal work.description
+      expect(unchanged_work.published_date).must_equal work.published_date
+    end
+  end
+  
 end
