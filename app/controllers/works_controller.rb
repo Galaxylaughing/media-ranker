@@ -22,12 +22,23 @@ class WorksController < ApplicationController
     @work = Work.new(work_params)
     
     if @work.save
-      flash[:success] = "Book added successfully"
+      flash[:success] = "#{@work.category.capitalize} added successfully"
       redirect_to work_path(@work.id)
       return
     else
       flash.now[:failure] = "Media failed to save"
       render :new
+    end
+  end
+  
+  def edit
+    work_id = params[:id]
+    @work = Work.find_by(id: work_id)
+    
+    if @work.nil?
+      flash[:error] = "Could not find media with id: #{work_id}"
+      redirect_to works_path
+      return
     end
   end
   
