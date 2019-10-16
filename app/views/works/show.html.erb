@@ -37,7 +37,7 @@
           <% all_votes.each do |vote| %>
             <tr>
               <td><%= link_to vote.user.username %></td>
-              <td><%= vote.date %></td>
+              <td><%= vote.date.strftime("%b %d, %G") %></td>
             </tr>
           <% end %>
         <% end %>
