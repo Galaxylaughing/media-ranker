@@ -1,6 +1,6 @@
 class WorksController < ApplicationController
-  before_action :find_work, only: [:show, :edit, :update]
-  before_action :if_work_missing, only: [:show, :edit, :update]
+  before_action :find_work, only: [:show, :edit, :update, :destroy]
+  before_action :if_work_missing, only: [:show, :edit, :update, :destroy]
   
   def index
     @works = Work.all
@@ -42,6 +42,14 @@ class WorksController < ApplicationController
       render :edit
       return
     end
+  end
+  
+  def destroy
+    @work.destroy
+    
+    flash[:success] = "'#{@work.name}' deleted successfully"
+    redirect_to works_path
+    return
   end
   
   private
