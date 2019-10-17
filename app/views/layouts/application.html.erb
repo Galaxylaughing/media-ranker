@@ -7,26 +7,34 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Gudea:400,700|Hammersmith+One">
   </head>
 
   <body>
-    <header>
-      <h1>Media Ranker</h1>
-      <p>Ranking the Best of Everything</p>
+    <header class="app_header">
+      <h1 class="app_header__header">
+        <%= link_to "Media Ranker", root_path %>
+        <small>Ranking the Best of Everything</small>
+      </h1>
 
-      <nav>
-        <button type="button" class="btn"><%= link_to "View Top Media", root_path %></button>
-        <button type="button" class="btn"><%= link_to "View All Media", works_path %></button>
-        <button type="button" class="btn"><%= link_to "Add A New Work", new_work_path %></button>
-        <button type="button" class="btn">View All Users</button>
+      <nav class="app_header__nav">
+        <ul class="nav app_header__site_nav">
+          <li class="nav-item nav-link"><%= link_to "View top media", root_path %></li>
+          <li class="nav-item nav-link"><%= link_to "View all media", works_path %></li>
+          <li class="nav-item nav-link"><%= link_to "Add a new work", new_work_path %></li>
+          <li class="nav-item nav-link"><%= link_to "View all users" %></li>
+        </ul>
 
-        <% current_user = User.find_by(id: session[:user_id]) %>
-        <% if current_user %>
-          <button type="button" class="btn">Logged in as <%= link_to current_user.username, current_user_path %></button>
-          <button type="button" class="btn"><%= link_to "Log Out", logout_path, method: :post%></button>
-        <% else %>
-          <button type="button" class="btn"><%= link_to "Log In", login_path %></button>
-        <% end %>
+        <ul class="nav app_header__user_nav">
+          <% current_user = User.find_by(id: session[:user_id]) %>
+          <% if current_user %>
+            <li class="nav-item nav-link"><button type="button" class="btn btn-primary">Logged in as <%= link_to current_user.username, current_user_path %></button></li>
+            <li class="nav-item nav-link"><button type="button" class="btn btn-primary"><%= link_to "Log Out", logout_path, method: :post%></button></li>
+          <% else %>
+            <li class="nav-item nav-link"><button type="button" class="btn btn-primary"><%= link_to "Log In", login_path %></button></li>
+          <% end %>
+        </ul>
       </nav>
     </header>
     

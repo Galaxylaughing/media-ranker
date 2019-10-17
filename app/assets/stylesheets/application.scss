@@ -16,3 +16,105 @@
 @import "bootstrap";
 /* Import scss content */
 @import "**/*";
+
+$font-stack: "Gudea", sans-serif;
+
+$primary: #26a69a;
+$dark-secondary: #00796B;
+$light_secondary: #b2dfdb;
+$complementary: #ff5722;
+
+body {
+  font-family: $font-stack;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+
+// BUTTONS
+
+.btn-primary a {
+  color: white;
+}
+
+.btn-primary {
+  border: none;
+  background-color: $primary;
+}
+
+.btn-primary:hover {
+  border: none;
+  background-color: $dark-secondary;
+}
+
+
+
+// HEADER
+
+.app_header {
+  background-color: $light_secondary;
+  width: 100%;
+  padding-top: 3.2rem;
+  padding-bottom: 0.2rem;
+}
+
+
+.app_header__header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.app_header__header a {
+  font-weight: bold;
+  color: $complementary;
+
+  // separator line
+  line-height: 1.5em;
+  border-right: 2px solid white;
+  padding-right: 0.65em;
+}
+
+.app_header__header small {
+  color: white;
+  padding-left: 0.4em;
+}
+
+
+// .app_header__nav
+
+.app_header__nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+// .app_header__site_nav
+
+.app_header__site_nav {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+.app_header__site_nav a {
+  color: $dark-secondary;
+}
+
+.app_header__site_nav .nav-item {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding-bottom: 0;
+}
+
+// .app_header__user_nav
+
+.app_header__user_nav {
+  font-size: 1.5em;
+}
+
+.app_header__user_nav .btn {
+  padding: 0.4em 0.8em 0.4em 0.8em;
+}
