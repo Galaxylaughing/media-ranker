@@ -159,10 +159,21 @@ describe WorksController do
       
       deleted_work = Work.find_by(id: work.id)
       expect(deleted_work).must_be_nil
-      
       expect(flash[:success]).must_equal "'A Night to Remember' deleted successfully"
       
-      # expect(flash[:votes]).must_equal "The votes for this work have been removed: #{votes(:scalzi_uglies).user.username}, #{votes(:butler_uglies.user.username)}"
+      must_redirect_to works_path
+    end
+    
+    it "deletes any associated votes" do
+      work = works(:indigo)
+      
+      expect {
+        delete work_path(work.id)
+      }.must_change "Work.count", -1
+      
+      deleted_work = Work.find_by(id: work.id)
+      expect(deleted_work).must_be_nil
+      expect(flash[:votes]).must_include "The votes for this work have been removed"
       
       must_redirect_to works_path
     end

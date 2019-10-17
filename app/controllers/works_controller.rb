@@ -45,13 +45,17 @@ class WorksController < ApplicationController
   end
   
   def destroy
+    # vote deletion must come before work deletion
+    # or the destroy action will cause an ActiveRecord::InvalidForeignKey: PG::ForeignKeyViolation
+    # because the vote is still trying to link up to the work
+    flash_notice = Vote.delete_matching_votes(@work)
+    if flash_notice
+      flash[:votes] = flash_notice
+    end
+    
     @work.destroy
     
     flash[:success] = "'#{@work.name}' deleted successfully"
-    
-    # flash_notice = delete_matching_votes(@work)
-    # flash[:votes] = flash_notice
-    
     redirect_to works_path
     return
   end
