@@ -1,21 +1,21 @@
-<section>
-  <h2>List of Works</h2>
+<section class="media_index">
+  <h2 class="media_index__header">List of Works</h2>
 
-  <section>
-    <h3>Movies</h3>
+  <section class="media_index__category">
+    <h3 class="media_index__category_header">Movies</h3>
     <%= render partial: "table", locals: { category: "movie"} %>
   </section>
 
-  <section>
-    <h3>Books</h3>
+  <section class="media_index__category">
+    <h3 class="media_index__category_header">Books</h3>
     <%= render partial: "table", locals: { category: "book"} %>
   </section>
 
-  <section>
-    <h3>Albums</h3>
+  <section class="media_index__category">
+    <h3 class="media_index__category_header">Albums</h3>
     <%= render partial: "table", locals: { category: "album"} %>
   </section>
 </section>
 
-<button type="button" class="btn"><%= link_to "View Top Media", root_path %></button>
-<button type="button" class="btn"><%= link_to "Add a New Work", new_work_path %></button>
+<button type="button" class="btn btn-secondary"><%= link_to "View top media", root_path %></button>
+<button type="button" class="btn btn-primary"><%= link_to "Add a new work", new_work_path %></button>

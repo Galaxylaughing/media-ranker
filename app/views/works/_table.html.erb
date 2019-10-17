@@ -1,11 +1,11 @@
-<table class="table">
+<table class="table media_table">
   <thead>
     <tr>
-      <th scope="col">Votes</th>
+      <th scope="col" width="80">Votes</th>
       <th scope="col">Title</th>
       <th scope="col">Created By</th>
-      <th scope="col">Published</th>
-      <th scope="col">Upvote</th>
+      <th scope="col" width="100">Published</th>
+      <th scope="col" width="100">Upvote</th>
     </tr>
   </thead>
   <tbody>
@@ -20,7 +20,7 @@
         <% else %>
           <td>[unknown]</td>
         <% end %>
-        <td><button type="button" class="btn"><%= link_to "Upvote", work_upvote_path(work.id), method: :post %></button></td>
+        <td><button type="button" class="btn btn-primary"><%= link_to "Upvote", work_upvote_path(work.id), method: :post %></button></td>
       </tr>
     <% end %>
   </tbody>
