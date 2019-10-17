@@ -3,7 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $primary: #26a69a;
+$light_secondary: #b2dfdb;
 $gray: #424242;
+$bluegray: #708090;
 
 .sectioning_rule {
   margin: 0 auto 3rem auto;
@@ -29,4 +31,39 @@ $gray: #424242;
 .spotlight__header_data a {
   color: $primary;
   border-bottom: 0.15rem solid $primary;
+}
+
+.top_ten {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 2rem;
+}
+
+.top_ten__category_title {
+  font-weight: bold;
+  color: $primary;
+
+  border-bottom: 2px solid $light_secondary;
+}
+
+.top_ten__works_container {
+  padding: 1rem;
+}
+
+.top_ten__work {
+  margin-bottom: 2.5rem;
+}
+
+.top_ten__work_intro {
+  font-size: 1.5rem;
+}
+
+.top_ten__work_name a {
+  font-weight: bold;
+  color: $primary;
+}
+
+.top_ten__work_creator {
+  font-size: 1.2rem;
+  color: $bluegray;
 }
