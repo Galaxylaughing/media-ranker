@@ -129,4 +129,18 @@ describe Work do
       expect(response.length).must_equal 1
     end
   end
+  
+  describe "sort by votes" do
+    
+    it "returns a list with the most voted at the top" do
+      # works(:october) has four votes
+      # works(:silver) has three votes
+      
+      list = Work.sort_by_votes
+      
+      expect(list.first).must_equal works(:october)
+      expect(list[1]).must_equal works(:silver)
+    end
+    
+  end
 end

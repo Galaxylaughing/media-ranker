@@ -3,7 +3,7 @@ class WorksController < ApplicationController
   before_action :if_work_missing, only: [:show, :edit, :update, :destroy]
   
   def index
-    @works = Work.all
+    @works = Work.sort_by_votes
   end
   
   def show ; end
