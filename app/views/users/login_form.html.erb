@@ -1,28 +1,30 @@
-<section class="app_login">
-  <h2 class="header primary_header">Log In</h2>
+<main>
+  <section class="app_login">
+    <h2 class="header primary_header">Log In</h2>
 
-  <%= form_with model: @user, url: login_path, class: "form-group" do |f| %>
+    <%= form_with model: @user, url: login_path, class: "form-group" do |f| %>
 
-    <div class="form-group">
-      <%= f.label :username %>
-      <%= f.text_field :username, class: "form-control" %>
-    </div>
+      <div class="form-group">
+        <%= f.label :username %>
+        <%= f.text_field :username, class: "form-control" %>
+      </div>
 
-    <%= f.submit "Log In", class: "btn btn-primary" %>
-  <% end %>
+      <%= f.submit "Log In", class: "btn btn-primary" %>
+    <% end %>
 
-  <section class="login_note">
-    <h3 class="header secondary_header">A note about logging in</h3>
+    <section class="login_note">
+      <h3 class="header secondary_header">A note about logging in</h3>
 
-    <p>
-      There is no password field. In fact, there is no indication whatsoever that you are who you say you are. 
-      There's nothing special about users - username is just another piece of data that the user entered and we have to keep track of.
-    </p>
+      <p>
+        There is no password field. In fact, there is no indication whatsoever that you are who you say you are. 
+        There's nothing special about users - username is just another piece of data that the user entered and we have to keep track of.
+      </p>
 
-    <p>
-      We'll learn more about security and authentication in the next couple weeks. 
-      For now, don't worry about it beyond what you can see here.
-    </p>
+      <p>
+        We'll learn more about security and authentication in the next couple weeks. 
+        For now, don't worry about it beyond what you can see here.
+      </p>
+    </section>
+
   </section>
-
-</section>
+</main>

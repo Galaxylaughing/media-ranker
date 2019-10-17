@@ -1,25 +1,27 @@
-<section class="obj_index">
-  <h2 class="header primary_header">List of Users</h2>
+<main>
+  <section class="obj_index">
+    <h2 class="header primary_header">List of Users</h2>
 
-  <table class="table obj_table">
-    <thead>
-      <tr>
-        <th scope="col">Username</th>
-        <th scope="col" width="120">Votes</th>
-        <th scope="col" width="120">Joined</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @users.each do |user| %>
+    <table class="table obj_table">
+      <thead>
         <tr>
-          <td class="table-data"><%= link_to user.username, user_path(user.id) %></td>
-          <td class="table-data"><%= user.votes.count %></td>
-          <td class="table-data"><%= user.date_joined.strftime("%b %d, %G") %></td>
+          <th scope="col">Username</th>
+          <th scope="col" width="120">Votes</th>
+          <th scope="col" width="120">Joined</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td class="table-data"><%= link_to user.username, user_path(user.id) %></td>
+            <td class="table-data"><%= user.votes.count %></td>
+            <td class="table-data"><%= user.date_joined.strftime("%b %d, %G") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-</section>
+  </section>
 
-<button type="button" class="btn btn-secondary"><%= link_to "Back to media list", works_path %></button>
+  <button type="button" class="btn btn-secondary"><%= link_to "Back to media list", works_path %></button>
+</main>

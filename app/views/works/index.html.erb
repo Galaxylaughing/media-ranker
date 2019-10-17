@@ -1,27 +1,29 @@
-<section class="obj_index">
-  <h2 class="header primary_header">List of Works</h2>
+<main>
+  <section class="obj_index">
+    <h2 class="header primary_header">List of Works</h2>
 
-  <section class="obj_index__category">
-    <% category = "Movie"; category_name = "Movies"%>
-    <a id=<%= category %>></a>
-    <h3 class="header secondary_header obj_index__category_header"><%= category_name %> <%= link_to "#", works_path + "##{category}", class: "obj_index__anchor" %></h3>
-    <%= render partial: "table", locals: { category: "movie"} %>
+    <section class="obj_index__category">
+      <% category = "Movie"; category_name = "Movies"%>
+      <a id=<%= category %>></a>
+      <h3 class="header secondary_header obj_index__category_header"><%= category_name %> <%= link_to "#", works_path + "##{category}", class: "obj_index__anchor" %></h3>
+      <%= render partial: "table", locals: { category: "movie"} %>
+    </section>
+
+    <section class="obj_index__category">
+      <% category = "Book"; category_name = "Books"%>
+      <a id=<%= category %>></a>
+      <h3 class="header secondary_header obj_index__category_header"><%= category_name %> <%= link_to "#", works_path + "##{category}", class: "obj_index__anchor" %></h3>
+      <%= render partial: "table", locals: { category: "book"} %>
+    </section>
+
+    <section class="obj_index__category">
+      <% category = "Album"; category_name = "Albums"%>
+      <a id=<%= category %>></a>
+      <h3 class="header secondary_header obj_index__category_header"><%= category_name %> <%= link_to "#", works_path + "##{category}", class: "obj_index__anchor" %></h3>
+      <%= render partial: "table", locals: { category: "album"} %>
+    </section>
   </section>
 
-  <section class="obj_index__category">
-    <% category = "Book"; category_name = "Books"%>
-    <a id=<%= category %>></a>
-    <h3 class="header secondary_header obj_index__category_header"><%= category_name %> <%= link_to "#", works_path + "##{category}", class: "obj_index__anchor" %></h3>
-    <%= render partial: "table", locals: { category: "book"} %>
-  </section>
-
-  <section class="obj_index__category">
-    <% category = "Album"; category_name = "Albums"%>
-    <a id=<%= category %>></a>
-    <h3 class="header secondary_header obj_index__category_header"><%= category_name %> <%= link_to "#", works_path + "##{category}", class: "obj_index__anchor" %></h3>
-    <%= render partial: "table", locals: { category: "album"} %>
-  </section>
-</section>
-
-<button type="button" class="btn btn-secondary"><%= link_to "View top media", root_path %></button>
-<button type="button" class="btn btn-primary"><%= link_to "Add a new work", new_work_path %></button>
+  <button type="button" class="btn btn-secondary"><%= link_to "View top media", root_path %></button>
+  <button type="button" class="btn btn-primary"><%= link_to "Add a new work", new_work_path %></button>
+</main>

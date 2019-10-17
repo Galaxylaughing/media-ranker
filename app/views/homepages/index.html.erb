@@ -1,24 +1,26 @@
-<section class="spotlight">
-  <% spotlight = Work.find_highest_voted() %>
-  <h2 class="spotlight__header">
-    <span class="spotlight__header_intro">Media Spotlight:</span>
-    <span class="spotlight__header_data"><%= link_to spotlight.name, work_path(spotlight.id) %></span>
-    <span class="spotlight__header_data">by <%= spotlight.creator %></span>
-  </h2>
+<main>
+  <section class="spotlight">
+    <% spotlight = Work.find_highest_voted() %>
+    <h2 class="spotlight__header">
+      <span class="spotlight__header_intro">Media Spotlight:</span>
+      <span class="spotlight__header_data"><%= link_to spotlight.name, work_path(spotlight.id) %></span>
+      <span class="spotlight__header_data">by <%= spotlight.creator %></span>
+    </h2>
 
-  <div>
-    <span><%= spotlight.votes.count %> votes</span>
-    <span> - </span>
-    <span><%= spotlight.description %></span>
-  </div>
-</section>
+    <div>
+      <span><%= spotlight.votes.count %> votes</span>
+      <span> - </span>
+      <span><%= spotlight.description %></span>
+    </div>
+  </section>
 
-<hr class="sectioning_rule"/>
+  <hr class="sectioning_rule"/>
 
-<article class="top_ten">
-  <%= render partial: "topmedia", locals: { action_category: "movie", action_title: "Movies"} %>
+  <article class="top_ten">
+    <%= render partial: "topmedia", locals: { action_category: "movie", action_title: "Movies"} %>
 
-  <%= render partial: "topmedia", locals: { action_category: "book", action_title: "Books"} %>
+    <%= render partial: "topmedia", locals: { action_category: "book", action_title: "Books"} %>
 
-  <%= render partial: "topmedia", locals: { action_category: "album", action_title: "Albums"} %>
-</article>
+    <%= render partial: "topmedia", locals: { action_category: "album", action_title: "Albums"} %>
+  </article>
+</<main>>

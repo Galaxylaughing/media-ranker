@@ -1,9 +1,11 @@
-<h2>
-  You are logged in as user 
-  <%= link_to @current_user.username, user_path(@current_user.id), class: "primary_header current_user" %>
-</h2>
+<main>
+  <h2>
+    You are logged in as user 
+    <%= link_to @current_user.username, user_path(@current_user.id), class: "primary_header current_user" %>
+  </h2>
 
-<p>
-  date joined:
-  <%= @current_user.date_joined.strftime("%b %d, %G") %>
-</p>
+  <p>
+    date joined:
+    <%= @current_user.date_joined.strftime("%b %d, %G") %>
+  </p>
+</main>

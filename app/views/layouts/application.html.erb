@@ -37,9 +37,9 @@
         </ul>
       </nav>
     </header>
-    
-    <main>
-      <section class="flash">
+
+    <% if flash.any? %>
+      <section class="flash alert alert-warning">
         <% flash.each do |name, message| %>
           <% if name == "error" %>
             <div>A problem occurred: <%= message %></div>
@@ -50,8 +50,8 @@
           <% end %>
         <% end %>
       </section>
+    <% end %>
 
       <%= yield %>
-    </main>
   </body>
 </html>

@@ -1,1 +1,16 @@
-<%= render partial: "form", locals: { action_name: "Edit", action_phrase: "Edit this #{@work.category.capitalize}"} %>
+<% if @work.errors.any? %>
+  <section class="alert alert-warning">
+    <span>A problem occurred:</span>
+    <ul>
+      <% @work.errors.each do |column, message| %>
+        <li>
+          <strong><%= column.capitalize %></strong> <%= message %>
+        </li>
+      <% end %>
+    </ul>
+    </section>
+<% end %>
+
+<main>
+  <%= render partial: "form", locals: { action_name: "Edit", action_phrase: "Edit this #{@work.category.capitalize}"} %>
+</main>
