@@ -11,6 +11,10 @@ class UsersController < ApplicationController
     if user
       session[:user_id] = user.id
       flash[:success] = "Successfully logged in as returning user #{username}"
+    elsif username.empty?
+      flash[:error] = "Username cannot be blank"
+      render :login_form
+      return
     else
       new_user = User.create(username: username, date_joined: Date.today)
       session[:user_id] = new_user.id

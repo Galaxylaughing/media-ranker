@@ -36,6 +36,23 @@ describe UsersController do
       
       must_redirect_to root_path
     end
+    
+    it "does not create an invalid user" do
+      # arrange
+      login_data = {
+        username: ""
+      }
+      
+      # act
+      post login_path, params: login_data
+      
+      user = User.find_by(username: "")
+      
+      # assert
+      expect(user).must_be_nil
+      expect(session[:user_id]).must_be_nil
+      expect(flash[:error]).must_equal "Username cannot be blank"
+    end
   end
   
   describe "current" do
