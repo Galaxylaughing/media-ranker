@@ -28,6 +28,10 @@ body {
   font-family: $font-stack;
 }
 
+main {
+  padding: 2rem;
+}
+
 a:hover {
   text-decoration: none;
 }

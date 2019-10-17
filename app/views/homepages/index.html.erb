@@ -1,17 +1,19 @@
 <section class="spotlight">
   <% spotlight = Work.find_highest_voted() %>
-  <h2>
-    Media Spotlight:
-    <span><%= spotlight.name %></span>
-    <span>by <%= spotlight.creator %></span>
+  <h2 class="spotlight__header">
+    <span class="spotlight__header_intro">Media Spotlight:</span>
+    <span class="spotlight__header_data"><%= link_to spotlight.name, work_path(spotlight.id) %></span>
+    <span class="spotlight__header_data">by <%= spotlight.creator %></span>
   </h2>
 
-  <p>
+  <div>
     <span><%= spotlight.votes.count %> votes</span>
     <span> - </span>
     <span><%= spotlight.description %></span>
-  </p>
+  </div>
 </section>
+
+<hr class="sectioning_rule"/>
 
 <article class="top-ten">
   <%= render partial: "topmedia", locals: { action_category: "movie", action_title: "Movies"} %>

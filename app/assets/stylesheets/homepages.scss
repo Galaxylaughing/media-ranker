@@ -1,3 +1,32 @@
 // Place all the styles related to the Homepages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$primary: #26a69a;
+$gray: #424242;
+
+.sectioning_rule {
+  margin: 0 auto 3rem auto;
+}
+
+.spotlight {
+  padding: 2rem;
+  padding-top: 0.5rem;
+}
+
+.spotlight__header {
+  font-weight: bold;
+}
+
+.spotlight__header_intro {
+  color: $gray;
+}
+
+.spotlight__header_data {
+  color: $primary;
+}
+
+.spotlight__header_data a {
+  color: $primary;
+  border-bottom: 0.15rem solid $primary;
+}
