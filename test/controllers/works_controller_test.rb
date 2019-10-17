@@ -151,7 +151,7 @@ describe WorksController do
   
   describe "destroy" do
     it "removes the work from the database" do
-      work = works(:hermits)
+      work = works(:remember)
       
       expect {
         delete work_path(work.id)
@@ -160,7 +160,10 @@ describe WorksController do
       deleted_work = Work.find_by(id: work.id)
       expect(deleted_work).must_be_nil
       
-      expect(flash[:success]).must_equal "'The Very Best of Herman's Hermits' deleted successfully"
+      expect(flash[:success]).must_equal "'A Night to Remember' deleted successfully"
+      
+      # expect(flash[:votes]).must_equal "The votes for this work have been removed: #{votes(:scalzi_uglies).user.username}, #{votes(:butler_uglies.user.username)}"
+      
       must_redirect_to works_path
     end
     

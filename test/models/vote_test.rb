@@ -50,4 +50,21 @@ describe Vote do
       expect(@vote.errors.messages).must_include :user_id
     end
   end
+  
+  describe "delete matching votes" do
+    it "must change vote count" do
+      work = works(:uglies)
+      
+      expect {
+        Vote.delete_matching_votes(work)
+      }.must_change "Vote.count", -2
+    end
+    
+    it "must return a string of votes" do
+      work = works(:uglies)
+      
+      response = Vote.delete_matching_votes(work)
+      expect(response).must_include "The votes for this work have been removed"
+    end
+  end
 end

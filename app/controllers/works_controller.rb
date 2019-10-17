@@ -48,6 +48,10 @@ class WorksController < ApplicationController
     @work.destroy
     
     flash[:success] = "'#{@work.name}' deleted successfully"
+    
+    # flash_notice = delete_matching_votes(@work)
+    # flash[:votes] = flash_notice
+    
     redirect_to works_path
     return
   end
