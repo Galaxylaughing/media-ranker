@@ -33,6 +33,24 @@ describe User do
       expect(@user.valid?).must_equal false
     end
     
+    it "is invalid with a username of zero characters" do
+      @user.username = ""
+      
+      expect(@user.valid?).must_equal false
+    end
+    
+    it "is invalid with a username of thirty-one characters" do
+      @user.username = "aaaaabbbbbaaaaabbbbbaaaaabbbbba"
+      
+      expect(@user.valid?).must_equal false
+    end
+    
+    it "is valid with a username of one character" do
+      @user.username = "a"
+      
+      expect(@user.valid?).must_equal true
+    end
+    
     it "is invalid without a date joined" do
       @user.date_joined = nil
       

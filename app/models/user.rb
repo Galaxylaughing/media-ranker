@@ -4,6 +4,7 @@ class User < ApplicationRecord
   # validations
   validates :username, presence: true
   validates :username, uniqueness: true
+  validates :username, length: { in: 1..30 }
   validates :date_joined, presence: true
   
   def self.sort_by_date_joined()
