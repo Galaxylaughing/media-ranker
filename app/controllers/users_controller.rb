@@ -15,11 +15,8 @@ class UsersController < ApplicationController
       flash.now[:error] = "Username cannot be blank"
       render :login_form
       return
-    elsif !!(username =~ /\A\s+/)
-      flash.now[:error] = "Username cannot have leading whitespace"
-      render :login_form
-      return
     else
+      username = username.strip
       new_user = User.create(username: username, date_joined: Date.today)
       session[:user_id] = new_user.id
       flash[:success] = "Successfully logged in as new user '#{username}'"
