@@ -22,9 +22,9 @@
     <button type="button" class="btn btn-danger"><%= link_to "Delete", work_path(@work.id), method: :delete %></button>
   </div>
 
-  <section class="media_show__table_container">
+  <section class="obj_show__table_container">
     <h3 class="header"><%= @work.votes.count %> Votes for this <%= @work.category.capitalize %></h3>
-    <table class="table media_table">
+    <table class="table obj_table">
       <thead>
         <tr>
           <th scope="col">User</th>

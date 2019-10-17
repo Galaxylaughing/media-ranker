@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   resources :works do
     post '/upvote', to: "votes#upvote", as: "upvote"
   end
+  
+  resources :users, only: [:index]
 end

@@ -70,4 +70,12 @@ describe UsersController do
       expect(flash[:error]).must_equal "No user logged in"
     end
   end
+  
+  describe "index" do
+    it "can access the user index page" do
+      get users_path
+      
+      must_respond_with :success
+    end
+  end
 end

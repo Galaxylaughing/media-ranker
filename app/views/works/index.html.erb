@@ -1,18 +1,18 @@
-<section class="media_index">
-  <h2 class="header media_index__header">List of Works</h2>
+<section class="obj_index">
+  <h2 class="header obj_index__header">List of Works</h2>
 
-  <section class="media_index__category">
-    <h3 class="header media_index__category_header">Movies</h3>
+  <section class="obj_index__category">
+    <h3 class="header obj_index__category_header">Movies</h3>
     <%= render partial: "table", locals: { category: "movie"} %>
   </section>
 
-  <section class="media_index__category">
-    <h3 class="header media_index__category_header">Books</h3>
+  <section class="obj_index__category">
+    <h3 class="header obj_index__category_header">Books</h3>
     <%= render partial: "table", locals: { category: "book"} %>
   </section>
 
-  <section class="media_index__category">
-    <h3 class="header media_index__category_header">Albums</h3>
+  <section class="obj_index__category">
+    <h3 class="header obj_index__category_header">Albums</h3>
     <%= render partial: "table", locals: { category: "album"} %>
   </section>
 </section>
