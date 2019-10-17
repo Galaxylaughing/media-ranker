@@ -36,26 +36,6 @@ a:hover {
   text-decoration: none;
 }
 
-
-// BUTTONS
-
-.btn-primary a {
-  color: white;
-}
-
-.btn-primary {
-  border: none;
-  background-color: $primary;
-  padding: 0.438rem 0.82rem 0.438rem 0.82rem;
-}
-
-.btn-primary:hover {
-  border: none;
-  background-color: $dark-secondary;
-}
-
-
-
 // HEADER
 
 .app_header {
@@ -88,16 +68,12 @@ a:hover {
 }
 
 
-// .app_header__nav
-
 .app_header__nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-
-// .app_header__site_nav
 
 .app_header__site_nav {
   display: flex;
@@ -115,7 +91,6 @@ a:hover {
   padding-bottom: 0;
 }
 
-// .app_header__user_nav
 
 .app_header__user_nav {
   font-size: 1.5em;
@@ -123,4 +98,57 @@ a:hover {
 
 .app_header__user_nav .btn {
   padding: 0.4em 0.8em 0.4em 0.8em;
+}
+
+
+// TABLES
+
+.header {
+  font-weight: bold;
+}
+
+.obj_table a {
+  color: $primary;
+}
+
+.obj_table tbody tr {
+  line-height: 3em;
+}
+
+.obj_index__header, .obj_show__header, .form_header {
+  color: $primary;
+}
+
+.obj_index__category_header {
+  font-size: 1.5rem;
+}
+
+.obj_show__table_container {
+  margin-top: 2rem;
+}
+
+
+// BUTTONS
+
+.btn-primary {
+  border: none;
+  background-color: $primary;
+  padding: 0.438rem 0.82rem 0.438rem 0.82rem;
+}
+
+.btn-primary:hover {
+  border: none;
+  background-color: $dark-secondary;
+}
+
+.btn-secondary:hover {
+  background-color: $dark-secondary;
+}
+
+.btn a {
+  color: white;
+}
+
+.btn-primary a {
+  color: white;
 }

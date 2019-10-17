@@ -1,37 +1,3 @@
 // Place all the styles related to the Works controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-$primary: #26a69a;
-$dark-secondary: #00796B;
-
-.btn a {
-  color: white;
-}
-
-.btn-secondary:hover {
-  background-color: $dark-secondary;
-}
-
-
-// headers
-.header {
-  font-weight: bold;
-}
-
-.obj_index__header, .obj_show__header, .form_header {
-  color: $primary;
-}
-
-.obj_index__category_header {
-  font-size: 1.5rem;
-}
-
-
-.obj_table a {
-  color: $primary;
-}
-
-.obj_show__table_container {
-  margin-top: 2rem;
-}
