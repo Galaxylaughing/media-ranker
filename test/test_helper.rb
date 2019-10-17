@@ -39,7 +39,7 @@ class ActiveSupport::TestCase
     
     # assert
     expect(session[:user_id]).must_be_nil
-    expect(flash[:success]).must_equal "user #{current_user.username} has successfully logged out"
+    expect(flash[:success]).must_equal "Successfully logged out"
     
     must_redirect_to root_path
     

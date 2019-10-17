@@ -39,19 +39,19 @@
     </header>
 
     <% if flash.any? %>
-      <section class="flash alert alert-warning">
         <% flash.each do |name, message| %>
           <% if name == "error" %>
-            <div>A problem occurred: <%= message %></div>
+            <section class="flash alert alert-warning">
+              <div>A problem occurred: <%= message %></div>
+            </section>
           <% elsif name == "success" %>
-            <div><%= message %></div>
-          <% else %>
-            <div><%= name %> : <%= message %></div>
+            <section class="flash alert alert-success">
+              <div><%= message %></div>
+            </section>
           <% end %>
         <% end %>
-      </section>
     <% end %>
 
-      <%= yield %>
+    <%= yield %>
   </body>
 </html>

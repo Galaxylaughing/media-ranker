@@ -34,7 +34,7 @@ class UsersController < ApplicationController
       username = User.find_by(id: session[:user_id]).username
       
       session[:user_id] = nil
-      flash[:success] = "user #{username} has successfully logged out"
+      flash[:success] = "Successfully logged out"
     else
       flash[:error] = "No user logged in"
     end
