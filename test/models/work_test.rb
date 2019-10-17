@@ -37,11 +37,12 @@ describe Work do
       expect(@work.valid?).must_equal false
     end
     
-    it "is invalid without a unique name-creator combination" do
-      new_work = Work.create(category: "book", name: @work.name, creator: @work.creator)
+    it "is invalid without a unique name-creator-category combination" do
+      new_work = Work.create(category: @work.category, name: @work.name, creator: @work.creator)
       
       expect(@work.valid?).must_equal false
       expect(@work.errors.messages).must_include :name
+      expect(@work.errors.messages[:name]).must_include "Work cannot have the same name, creator, and category as another work"
     end
     
     it "is invalid without a category" do
