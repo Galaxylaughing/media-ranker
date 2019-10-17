@@ -6,7 +6,7 @@ class Work < ApplicationRecord
   validates :category, presence: true
   validates :creator, presence: true
   # _should_ make sure all name-creator-category combinations must be unique
-  validates_uniqueness_of :name, scope: [:creator, :category], message: "Work cannot have the same name, creator, and category as another work"
+  validates_uniqueness_of :name, scope: [:creator, :category], message: "cannot have the same creator and category as another work"
   
   def self.find_highest_voted 
     # works_list = Work.all

@@ -42,7 +42,7 @@ describe Work do
       
       expect(@work.valid?).must_equal false
       expect(@work.errors.messages).must_include :name
-      expect(@work.errors.messages[:name]).must_include "Work cannot have the same name, creator, and category as another work"
+      expect(@work.errors.messages[:name]).must_include "cannot have the same creator and category as another work"
     end
     
     it "is invalid without a category" do
