@@ -13,5 +13,5 @@ Rails.application.routes.draw do
     post '/upvote', to: "votes#upvote", as: "upvote"
   end
   
-  resources :users, only: [:index]
+  resources :users, only: [:index, :show]
 end

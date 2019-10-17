@@ -1,5 +1,5 @@
-<section class="work_show">
-  <h2 class="header work_show__header"><%= @work.name %></h2>
+<section class="obj_show">
+  <h2 class="header obj_show__header"><%= @work.name %></h2>
   <p>Created by: <%= @work.creator %></p>
 
   <p>
@@ -36,7 +36,7 @@
         <% if all_votes %>
           <% all_votes.each do |vote| %>
             <tr>
-              <td><%= link_to vote.user.username %></td>
+              <td><%= link_to vote.user.username, user_path(vote.user.id) %></td>
               <td><%= vote.date.strftime("%b %d, %G") %></td>
             </tr>
           <% end %>

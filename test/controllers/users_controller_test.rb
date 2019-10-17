@@ -78,4 +78,23 @@ describe UsersController do
       must_respond_with :success
     end
   end
+  
+  describe "show" do
+    it "can get the page for an existing user" do
+      user = users(:metz)
+      
+      get user_path(user.id)
+      
+      must_respond_with :success
+    end
+    
+    it "redirects for an invalid user" do
+      invalid_id = -1
+      
+      get user_path(invalid_id)
+      
+      expect(flash[:error]).must_equal "Could not find user with id: #{invalid_id}"
+      must_redirect_to users_path
+    end
+  end
 end

@@ -45,4 +45,14 @@ class UsersController < ApplicationController
   def index
     @users = User.sort_by_date_joined
   end
+  
+  def show
+    @user = User.find_by(id: params[:id])
+    
+    if @user.nil?
+      flash[:error] = "Could not find user with id: #{params[:id]}"
+      redirect_to users_path
+      return
+    end
+  end
 end

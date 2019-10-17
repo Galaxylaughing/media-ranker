@@ -1,0 +1,38 @@
+<section class="obj_show">
+  <h2 class="header obj_show__header">User Summary: <%= @user.username %></h2>
+  <p>Joined site <%= @user.date_joined.strftime("%b %d, %G") %></p>
+
+  <section class="obj_show__table_container">
+    <h3 class="header">Votes</h3>
+    <table class="table obj_table">
+      <thead>
+        <tr>
+          <th scope="col">Media Title</th>
+          <th scope="col">Created By</th>
+          <th scope="col">Published</th>
+          <th scope="col">Category</th>
+          <th scope="col" width="150">Voted On</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% all_votes = @user.votes %>
+        <% if all_votes %>
+          <% all_votes.each do |vote| %>
+            <tr>
+              <td><%= link_to vote.work.name, work_path(vote.work.id) %></td>
+              <td><%= vote.work.creator %></td>
+              <td><%= vote.work.published_date.strftime("%G") %></td>
+              <td><%= vote.work.category.capitalize %></td>
+              <td><%= vote.date.strftime("%b %d, %G") %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+
+  <div>
+    <button type="button" class="btn btn-secondary"><%= link_to "See all users", users_path %></button>
+    <button type="button" class="btn btn-primary"><%= link_to "Back to media list", works_path %></button>
+  </div>
+</section>
