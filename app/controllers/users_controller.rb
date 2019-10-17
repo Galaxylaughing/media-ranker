@@ -11,8 +11,12 @@ class UsersController < ApplicationController
     if user
       session[:user_id] = user.id
       flash[:success] = "Successfully logged in as returning user #{username}"
-    elsif username.empty?
-      flash[:error] = "Username cannot be blank"
+    elsif username.empty? || !!(username =~ /\A\s+\Z/)
+      flash.now[:error] = "Username cannot be blank"
+      render :login_form
+      return
+    elsif !!(username =~ /\A\s+/)
+      flash.now[:error] = "Username cannot have leading whitespace"
       render :login_form
       return
     else

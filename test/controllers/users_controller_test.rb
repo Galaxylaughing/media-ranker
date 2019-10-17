@@ -37,7 +37,7 @@ describe UsersController do
       must_redirect_to root_path
     end
     
-    it "does not create an invalid user" do
+    it "does not create an empty-string username" do
       # arrange
       login_data = {
         username: ""
@@ -52,6 +52,40 @@ describe UsersController do
       expect(user).must_be_nil
       expect(session[:user_id]).must_be_nil
       expect(flash[:error]).must_equal "Username cannot be blank"
+    end
+    
+    it "does not create a whitespace username" do
+      # arrange
+      login_data = {
+        username: " "
+      }
+      
+      # act
+      post login_path, params: login_data
+      
+      user = User.find_by(username: " ")
+      
+      # assert
+      expect(user).must_be_nil
+      expect(session[:user_id]).must_be_nil
+      expect(flash[:error]).must_equal "Username cannot be blank"
+    end
+    
+    it "does not create a username with leading whitespace" do
+      # arrange
+      login_data = {
+        username: " apple"
+      }
+      
+      # act
+      post login_path, params: login_data
+      
+      user = User.find_by(username: " apple")
+      
+      # assert
+      expect(user).must_be_nil
+      expect(session[:user_id]).must_be_nil
+      expect(flash[:error]).must_equal "Username cannot have leading whitespace"
     end
   end
   
