@@ -32,7 +32,7 @@ describe UsersController do
       
       # assert
       expect(session[:user_id]).must_equal user.id
-      expect(flash[:success]).must_equal "Successfully logged in as new user #{username}"
+      expect(flash[:success]).must_equal "Successfully logged in as new user '#{username}'"
       
       must_redirect_to root_path
     end
