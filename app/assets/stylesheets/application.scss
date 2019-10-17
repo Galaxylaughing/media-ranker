@@ -101,7 +101,6 @@ a:hover {
 }
 
 
-// TABLES
 
 .header {
   font-weight: bold;
@@ -138,6 +137,11 @@ a:hover {
 
 .obj_index__category_header:hover .obj_index__anchor {
   display: inline-block;
+}
+
+
+.current_user:hover {
+  color: $dark-secondary;
 }
 
 
