@@ -127,6 +127,19 @@ a:hover {
   margin-top: 2rem;
 }
 
+.obj_index__anchor {
+  display: none;
+  color: $primary;
+}
+
+.obj_index__anchor:hover {
+  color: $dark-secondary;
+}
+
+.obj_index__category_header:hover .obj_index__anchor {
+  display: inline-block;
+}
+
 
 // BUTTONS
 
