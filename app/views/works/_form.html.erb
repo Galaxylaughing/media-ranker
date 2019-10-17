@@ -14,8 +14,8 @@
 
   <div class="form-group">
     <%= f.label :category %>
-    <%# <%= select_tag :category, options_for_select(["movie", "book", "album"]), class: "form-control" %>
-    <%= f.select :category, ["movie", "book", "album"], class: "form-control", id: "form-select" %>
+    <%# https://stackoverflow.com/questions/4081907/ruby-on-rails-form-for-select-field-with-class %>
+    <%= f.select :category, ["movie", "book", "album"], {}, {class: "form-control"} %>
   </div>
 
   <div class="form-group">
