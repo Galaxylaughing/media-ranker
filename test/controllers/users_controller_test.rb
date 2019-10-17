@@ -57,6 +57,7 @@ describe UsersController do
   
   describe "logout" do
     it "logs out the current user" do
+      # tested in perform_logout helper method
       response = perform_logout
       
       expect(response).must_equal true
