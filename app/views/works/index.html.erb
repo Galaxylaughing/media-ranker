@@ -2,16 +2,19 @@
   <h2 class="header obj_index__header">List of Works</h2>
 
   <section class="obj_index__category">
+    <a id="Movie"></a>
     <h3 class="header obj_index__category_header">Movies</h3>
     <%= render partial: "table", locals: { category: "movie"} %>
   </section>
 
   <section class="obj_index__category">
+    <a id="Book"></a>
     <h3 class="header obj_index__category_header">Books</h3>
     <%= render partial: "table", locals: { category: "book"} %>
   </section>
 
   <section class="obj_index__category">
+    <a id="Album"></a>
     <h3 class="header obj_index__category_header">Albums</h3>
     <%= render partial: "table", locals: { category: "album"} %>
   </section>
