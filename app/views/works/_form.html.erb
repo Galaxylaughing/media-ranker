@@ -14,7 +14,8 @@
 
   <div class="form-group">
     <%= f.label :category %>
-    <%= f.select :category, ["movie", "book", "album"], class: "form-control" %>
+    <%# <%= select_tag :category, options_for_select(["movie", "book", "album"]), class: "form-control" %>
+    <%= f.select :category, ["movie", "book", "album"], class: "form-control", id: "form-select" %>
   </div>
 
   <div class="form-group">
