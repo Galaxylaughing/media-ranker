@@ -8,13 +8,7 @@ describe VotesController do
       user = users(:scalzi)
       
       # login as user
-      # login(user.username)
-      
-      puts Vote.count
-      
-      post work_upvote_path(work.id)
-      
-      puts Vote.count
+      perform_login(user)
       
       expect {
         post work_upvote_path(work.id)
