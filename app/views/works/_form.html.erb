@@ -10,7 +10,7 @@
 
 
 <%= form_with model: @work, class: "form-group" do |f| %>
-  <h2><%= action_phrase %></h2>
+  <h2 class="header form_header"><%= action_phrase %></h2>
 
   <div class="form-group">
     <%= f.label :category %>
@@ -31,7 +31,7 @@
   <div class="form-group">
     <%= f.label :published_date %>
     <%# the oldest known printed book is the Gutenberg Bible from 1454 %>
-    <%= f.date_select :published_date, start_year: 1454, discard_day: true, discard_month: true, class: "datepicker" %>
+    <%= f.date_select :published_date, {start_year: 1454, discard_day: true, discard_month: true}, {class: "form-control"} %>
   </div>
   
   <div class="form-group">
@@ -39,5 +39,5 @@
     <%= f.text_area :description, class: "form-control" %>
   </div>
 
-  <%= f.submit "#{action_name} Work"%>
+  <%= f.submit "#{action_name} Work", class: "btn btn-primary"%>
 <% end %>
