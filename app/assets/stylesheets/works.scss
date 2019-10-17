@@ -13,16 +13,25 @@ $dark-secondary: #00796B;
   background-color: $dark-secondary;
 }
 
-.media_index__header {
+
+// headers
+.header {
   font-weight: bold;
+}
+
+.media_index__header, .work_show__header {
   color: $primary;
 }
 
 .media_index__category_header {
-  font-weight: bold;
   font-size: 1.5rem;
 }
 
+
 .media_table a {
   color: $primary;
+}
+
+.media_show__table_container {
+  margin-top: 2rem;
 }

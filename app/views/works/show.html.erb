@@ -1,5 +1,5 @@
-<section>
-  <h2><%= @work.name %></h2>
+<section class="work_show">
+  <h2 class="header work_show__header"><%= @work.name %></h2>
   <p>Created by: <%= @work.creator %></p>
 
   <p>
@@ -15,16 +15,16 @@
     <%= @work.description %>
   </p>
 
-  <span>
-    <button type="button" class="btn"><%= link_to "Back to Media Ranks", root_path %></button>
-    <button type="button" class="btn"><%= link_to "Edit", edit_work_path(@work.id) %></button>
-    <button type="button" class="btn"><%= link_to "Upvote", work_upvote_path(@work.id), method: :post %></button>
-    <button type="button" class="btn"><%= link_to "Delete", work_path(@work.id), method: :delete %></button>
-  </span>
+  <div>
+    <button type="button" class="btn btn-primary"><%= link_to "Back to media ranks", root_path %></button>
+    <button type="button" class="btn btn-primary"><%= link_to "Edit", edit_work_path(@work.id) %></button>
+    <button type="button" class="btn btn-primary"><%= link_to "Upvote", work_upvote_path(@work.id), method: :post %></button>
+    <button type="button" class="btn btn-danger"><%= link_to "Delete", work_path(@work.id), method: :delete %></button>
+  </div>
 
-  <section>
-    <h3><%= @work.votes.count %> Votes for this <%= @work.category.capitalize %></h3>
-    <table class="table">
+  <section class="media_show__table_container">
+    <h3 class="header"><%= @work.votes.count %> Votes for this <%= @work.category.capitalize %></h3>
+    <table class="table media_table">
       <thead>
         <tr>
           <th scope="col">User</th>
