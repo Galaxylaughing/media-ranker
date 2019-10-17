@@ -1,15 +1,18 @@
-<section>
-  <h2>Log In</h2>
+<section class="app_login">
+  <h2 class="header primary_header">Log In</h2>
 
   <%= form_with model: @user, url: login_path, class: "form-group" do |f| %>
-    <%= f.label :username %>
-    <%= f.text_field :username, class: "form-control" %>
+
+    <div class="form-group">
+      <%= f.label :username %>
+      <%= f.text_field :username, class: "form-control" %>
+    </div>
 
     <%= f.submit "Log In", class: "btn btn-primary" %>
   <% end %>
 
-  <section>
-    <h3>A note about logging in</h3>
+  <section class="login_note">
+    <h3 class="header secondary_header">A note about logging in</h3>
 
     <p>
       There is no password field. In fact, there is no indication whatsoever that you are who you say you are. 
