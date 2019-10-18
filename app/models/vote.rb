@@ -3,7 +3,9 @@ class Vote < ApplicationRecord
   belongs_to :user
   
   # _should_ make sure all usr-work combinations must be unique
-  validates_uniqueness_of :user_id, scope: :work_id
+  # validates_uniqueness_of :user_id, scope: :work_id
+  validates :user_id, presence: true, uniqueness: { scope: :work_id }
+  validates :work_id, presence: true
   
   def self.delete_matching_votes(work)
     matching_votes = Vote.delete_votes(work)

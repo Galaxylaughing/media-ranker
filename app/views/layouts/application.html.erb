@@ -38,19 +38,7 @@
       </nav>
     </header>
 
-    <% if flash.any? %>
-        <% flash.each do |name, message| %>
-          <% if name == "error" %>
-            <section class="flash alert alert-warning">
-              <div>A problem occurred: <%= message %></div>
-            </section>
-          <% elsif name == "success" %>
-            <section class="flash alert alert-success">
-              <div><%= message %></div>
-            </section>
-          <% end %>
-        <% end %>
-    <% end %>
+    <%= render partial: "shared/flash" %>
 
     <%= yield %>
   </body>

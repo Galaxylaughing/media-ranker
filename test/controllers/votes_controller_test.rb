@@ -39,6 +39,7 @@ describe VotesController do
       
       must_respond_with :redirect
       expect(flash[:error]).must_equal "Could not upvote"
+      expect(flash[:user]).must_equal "has already voted for this work"
     end
     
     it "will not upvote if there's no logged-in user" do
