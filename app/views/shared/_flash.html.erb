@@ -13,6 +13,12 @@
           <% end %>
         </ul>
       </div>
+    <% else %>
+      <div class="flash alert alert-warning">
+        <% flash.each do |name, message| %>
+          <%= name.capitalize %>: <%= message %>
+        <% end %>
+      </div>
     <% end %>
   </section>
 <% end %>
