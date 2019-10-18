@@ -15,7 +15,7 @@ media_failures = []
 CSV.foreach(MEDIA_FILE, :headers => true) do |row|
   work = Work.new
   work.category = row['category']
-  work.name = row['title']
+  work.title = row['title']
   work.creator = row['creator']
   work.publication_date = (row['publication_year'] + "-01-01")
   work.description = row['description']
@@ -36,224 +36,224 @@ puts "#{media_failures.length} works failed to save"
 works_data = [
   {
     category: "book",
-    name: "The Name of the Wind",
+    title: "The Name of the Wind",
     creator: "Patrick Rothfuss",
     description: "A good fantasy book",
     publication_date: "January 1 2007"
   },
   {
     category: "book",
-    name: "Spinning Silver",
+    title: "Spinning Silver",
     creator: "Naomi Novik",
     description: "A Russian-inspired fantasy",
     publication_date: "January 1 2018"
   },
   {
     category: "book",
-    name: "All Systems Red",
+    title: "All Systems Red",
     creator: "Martha Wells",
     description: "A good sci-fi novella",
     publication_date: "January 1 2017"
   },
   {
     category: "book",
-    name: "Artificial Condition",
+    title: "Artificial Condition",
     creator: "Martha Wells",
     description: "A good sci-fi novella",
     publication_date: "January 1 2018"
   },
   {
     category: "book",
-    name: "Uglies",
+    title: "Uglies",
     creator: "Scott Westerfeld",
     description: "A good sci-fi YA book",
     publication_date: "January 1 2005"
   },
   {
     category: "book",
-    name: "Darius the Great Is Not Okay",
+    title: "Darius the Great Is Not Okay",
     creator: "Adib Khorram",
     description: "A comedic contemporary YA book about the son of Iranian immigrants reconnecting with his parent's homeland on a family trip",
     publication_date: "January 1 2018"
   },
   {
     category: "book",
-    name: "Life After Life",
+    title: "Life After Life",
     creator: "Jill McCorkle",
     description: "A witty book set at Pine Haven retirement center",
     publication_date: "January 1 2013"
   },
   {
     category: "book",
-    name: "Life After Life",
+    title: "Life After Life",
     creator: "Kate Atkinson",
     description: "A dark comedy about a woman who keeps dying over and over again",
     publication_date: "January 1 2013"
   },
   {
     category: "book",
-    name: "Truly Devious",
+    title: "Truly Devious",
     creator: "Maureen Johnson",
     description: "A YA mystery",
     publication_date: "January 1 2018"
   },
   {
     category: "book",
-    name: "Indigo Girl",
+    title: "Indigo Girl",
     creator: "Natasha Boyd",
     description: "A historical fiction novel",
     publication_date: "January 1 2017"
   },
   {
     category: "book",
-    name: "Illuminae",
+    title: "Illuminae",
     creator: "Amie Kaufman",
     description: "A great science fiction story",
     publication_date: "January 1 2016"
   },
   {
     category: "movie",
-    name: "The Hunt for Red October",
+    title: "The Hunt for Red October",
     creator: "John McTiernan",
     description: "Cold War spy thriller with submarines",
     publication_date: "January 1 1990"
   },
   {
     category: "movie",
-    name: "The Women's Balcony",
+    title: "The Women's Balcony",
     creator: "Emil Ben-Shimon",
     description: "Israeli comedy film",
     publication_date: "January 1 2016"
   },
   {
     category: "movie",
-    name: "Your Name",
+    title: "Your Name",
     creator: "Makoto Shinkai",
     description: "Animated Japanese film. You should see it. No spoilers. Just trust me",
     publication_date: "January 1 2017"
   },
   {
     category: "movie",
-    name: "Castle in the Sky",
+    title: "Castle in the Sky",
     creator: "Hayao Miyazaki",
     description: "Animated sci-fi movie",
     publication_date: "January 1 1986"
   },
   {
     category: "movie",
-    name: "Spirited Away",
+    title: "Spirited Away",
     creator: "Hayao Miyazaki",
     description: "Animated fantasy (urban fantasy?) movie",
     publication_date: "January 1 2001"
   },
   {
     category: "movie",
-    name: "A New Hope",
+    title: "A New Hope",
     creator: "George Lucas",
     description: "star warssss. the one with the double-sun shot.",
     publication_date: "January 1 1977"
   },
   {
     category: "movie",
-    name: "The Empire Strikes Back",
+    title: "The Empire Strikes Back",
     creator: "George Lucas",
     description: "star warssss. the one with the ice planet",
     publication_date: "January 1 1980"
   },
   {
     category: "movie",
-    name: "Return of the Jedi",
+    title: "Return of the Jedi",
     creator: "George Lucas",
     description: "star warssss. the one with the ewoks",
     publication_date: "January 1 1983"
   },
   {
     category: "movie",
-    name: "Chitty Chitty Bang Bang",
+    title: "Chitty Chitty Bang Bang",
     creator: "Ken Hughes",
     description: "A fantasy musical. A wild ride",
     publication_date: "January 1 1986"
   },
   {
     category: "movie",
-    name: "Monsters, Inc.",
+    title: "Monsters, Inc.",
     creator: "Pete Doctor",
     description: "A classic",
     publication_date: "January 1 2001"
   },
   {
     category: "album",
-    name: "The Noteworthy Life of Howard Barnes",
+    title: "The Noteworthy Life of Howard Barnes",
     creator: "Village Theater",
     description: "The music from the musical",
     publication_date: "January 1 2018"
   },
   {
     category: "album",
-    name: "Storm Front",
+    title: "Storm Front",
     creator: "Billy Joel",
     description: "A cool album",
     publication_date: "January 1 1989"
   },
   {
     category: "album",
-    name: "Best Shot",
+    title: "Best Shot",
     creator: "Pat Benatar",
     description: "Another cool album",
     publication_date: "January 1 1989"
   },
   {
     category: "album",
-    name: "America's Greatest Hits",
+    title: "America's Greatest Hits",
     creator: "America",
     description: "One of their greatest hits is 'Muskrat Love'",
     publication_date: "January 1 1975"
   },
   {
     category: "album",
-    name: "Oh, What a Life",
+    title: "Oh, What a Life",
     creator: "American Authors",
     description: "Another cool album",
     publication_date: "January 1 2014"
   },
   {
     category: "album",
-    name: "Time Capsule - Songs for a Future Generation",
+    title: "Time Capsule - Songs for a Future Generation",
     creator: "The B-52's",
     description: "Another cool album",
     publication_date: "January 1 1998"
   },
   {
     category: "album",
-    name: "Help!",
+    title: "Help!",
     creator: "The Beatles",
     description: "Another cool album",
     publication_date: "January 1 1965"
   },
   {
     category: "album",
-    name: "The Age of Plastic",
+    title: "The Age of Plastic",
     creator: "The Buggles",
     description: "Welcome to the plastic age",
     publication_date: "January 1 2001"
   },
   {
     category: "album",
-    name: "A Night to Remember",
+    title: "A Night to Remember",
     creator: "Cyndi Lauper",
     description: "like a cat",
     publication_date: "January 1 1989"
   },
   {
     category: "album",
-    name: "Swamp Ophelia",
+    title: "Swamp Ophelia",
     creator: "Indigo Girls",
     description: "Another cool album",
     publication_date: "January 1 1994"
   },
   {
     category: "album",
-    name: "The Very Best of Herman's Hermits",
+    title: "The Very Best of Herman's Hermits",
     creator: "Herman's Hermits",
     description: "my sentimental friend over there...",
     publication_date: "January 1 1970"
@@ -265,7 +265,7 @@ new_works = []
 works_data.each do |work|
   new_work = Work.new
   new_work.category = work[:category]
-  new_work.name = work[:name]
+  new_work.title = work[:title]
   new_work.creator = work[:creator]
   new_work.description = work[:description]
   new_work.publication_date = work[:publication_date]
@@ -325,112 +325,112 @@ votes_data = [
   {
     date: today_date,
     user_id: User.find_by(username: "john_scalzi").id,
-    work_id: Work.find_by(name: "Spinning Silver").id
+    work_id: Work.find_by(title: "Spinning Silver").id
   },
   {
     date: today_date,
     user_id: User.find_by(username: "octavia_butler").id,
-    work_id: Work.find_by(name: "Spinning Silver").id
+    work_id: Work.find_by(title: "Spinning Silver").id
   },
   {
     date: today_date,
     user_id: User.find_by(username: "sandi_metz").id,
-    work_id: Work.find_by(name: "Spinning Silver").id
+    work_id: Work.find_by(title: "Spinning Silver").id
   },
   {
     date: today_date,
     user_id: User.find_by(username: "john_scalzi").id,
-    work_id: Work.find_by(name: "All Systems Red").id
+    work_id: Work.find_by(title: "All Systems Red").id
   },
   {
     date: today_date,
     user_id: User.find_by(username: "octavia_butler").id,
-    work_id: Work.find_by(name: "All Systems Red").id
+    work_id: Work.find_by(title: "All Systems Red").id
   },
   {
     date: today_date,
     user_id: User.find_by(username: "john_scalzi").id,
-    work_id: Work.find_by(name: "The Name of the Wind").id
+    work_id: Work.find_by(title: "The Name of the Wind").id
   },
   {
     date: today_date,
     user_id: User.find_by(username: "octavia_butler").id,
-    work_id: Work.find_by(name: "The Name of the Wind").id
+    work_id: Work.find_by(title: "The Name of the Wind").id
   },
   {
     date: today_date,
     user_id: User.find_by(username: "john_scalzi").id,
-    work_id: Work.find_by(name: "Artificial Condition").id
+    work_id: Work.find_by(title: "Artificial Condition").id
   },
   {
     date: today_date,
     user_id: User.find_by(username: "octavia_butler").id,
-    work_id: Work.find_by(name: "Artificial Condition").id
+    work_id: Work.find_by(title: "Artificial Condition").id
   },
   {
     date: today_date,
     user_id: User.find_by(username: "john_scalzi").id,
-    work_id: Work.find_by(name: "Uglies").id
+    work_id: Work.find_by(title: "Uglies").id
   },
   {
     date: today_date,
     user_id: User.find_by(username: "octavia_butler").id,
-    work_id: Work.find_by(name: "Uglies").id
+    work_id: Work.find_by(title: "Uglies").id
   },
   {
     date: today_date,
     user_id: User.find_by(username: "john_scalzi").id,
-    work_id: Work.find_by(name: "Illuminae").id
+    work_id: Work.find_by(title: "Illuminae").id
   },
   {
     date: today_date,
     user_id: User.find_by(username: "octavia_butler").id,
-    work_id: Work.find_by(name: "Illuminae").id
+    work_id: Work.find_by(title: "Illuminae").id
   },
   {
     date: today_date,
     user_id: User.find_by(username: "john_scalzi").id,
-    work_id: Work.find_by(name: "Darius the Great Is Not Okay").id
+    work_id: Work.find_by(title: "Darius the Great Is Not Okay").id
   },
   {
     date: today_date,
     user_id: User.find_by(username: "octavia_butler").id,
-    work_id: Work.find_by(name: "Darius the Great Is Not Okay").id
+    work_id: Work.find_by(title: "Darius the Great Is Not Okay").id
   },
   {
     date: today_date,
     user_id: User.find_by(username: "john_scalzi").id,
-    work_id: Work.find_by(name: "Truly Devious").id
+    work_id: Work.find_by(title: "Truly Devious").id
   },
   {
     date: today_date,
     user_id: User.find_by(username: "octavia_butler").id,
-    work_id: Work.find_by(name: "Truly Devious").id
+    work_id: Work.find_by(title: "Truly Devious").id
   },
   {
     date: today_date,
     user_id: User.find_by(username: "john_scalzi").id,
-    work_id: Work.find_by(name: "Indigo Girl").id
+    work_id: Work.find_by(title: "Indigo Girl").id
   },
   {
     date: today_date,
     user_id: User.find_by(username: "octavia_butler").id,
-    work_id: Work.find_by(name: "Indigo Girl").id
+    work_id: Work.find_by(title: "Indigo Girl").id
   },
   {
     date: today_date,
     user_id: User.find_by(username: "john_scalzi").id,
-    work_id: Work.find_by(name: "The Hunt for Red October").id
+    work_id: Work.find_by(title: "The Hunt for Red October").id
   },
   {
     date: today_date,
     user_id: User.find_by(username: "octavia_butler").id,
-    work_id: Work.find_by(name: "The Hunt for Red October").id
+    work_id: Work.find_by(title: "The Hunt for Red October").id
   },
   {
     date: today_date,
     user_id: User.find_by(username: "sandi_metz").id,
-    work_id: Work.find_by(name: "The Hunt for Red October").id
+    work_id: Work.find_by(title: "The Hunt for Red October").id
   }
 ]
 

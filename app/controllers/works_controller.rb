@@ -59,7 +59,7 @@ class WorksController < ApplicationController
     
     @work.destroy
     
-    flash[:success] = "'#{@work.name}' deleted successfully"
+    flash[:success] = "'#{@work.title}' deleted successfully"
     redirect_to works_path
     return
   end
@@ -68,7 +68,7 @@ class WorksController < ApplicationController
   
   def work_params
     if params[:work]
-      return params.require(:work).permit(:category, :name, :creator, :publication_date, :description)
+      return params.require(:work).permit(:category, :title, :creator, :publication_date, :description)
     else
       return nil
     end

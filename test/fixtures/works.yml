@@ -1,201 +1,201 @@
 # BOOKS
 wind:
   category: book
-  name: Name of the Wind
+  title: Name of the Wind
   creator: Patrick Rothfuss
   description: A good fantasy book
   publication_date: January 1 2007
 silver:
   category: book
-  name: Spinning Silver
+  title: Spinning Silver
   creator: Naomi Novik
   description: A Russian-inspired fantasy
   publication_date: January 1 2018
 murderbot:
   category: book
-  name: All Systems Red
+  title: All Systems Red
   creator: Martha Wells
   description: A good sci-fi novella
   publication_date: January 1 2017
 artificial:
   category: book
-  name: Artificial Conditions
+  title: Artificial Conditions
   creator: Martha Wells
   description: A good sci-fi novella
   publication_date: January 1 2019
 uglies:
   category: book
-  name: Uglies
+  title: Uglies
   creator: Scott Westerfeld
   description: A good sci-fi YA book
   publication_date: January 1 2005
 darius:
   category: book
-  name: Darius the Great Is Not Okay
+  title: Darius the Great Is Not Okay
   creator: Adib Khorram
   description: A comedic contemporary YA book about the son of Iranian immigrants reconnecting with his parent's homeland on a family trip
   publication_date: January 1 2018
 life_mccorkle:
   category: book
-  name: Life After Life
+  title: Life After Life
   creator: Jill McCorkle
   description: A witty book set at Pine Haven retirement center
   publication_date: January 1 2013
 life_atkinson:
   category: book
-  name: Life After Life
+  title: Life After Life
   creator: Kate Atkinson
   description: A dark comedy about a woman who keeps dying over and over again
   publication_date: January 1 2013
 devious:
   category: book
-  name: Truly Devious
+  title: Truly Devious
   creator: Maureen Johnson
   description: A YA mystery
   publication_date: January 1 2018
 indigo:
   category: book
-  name: Indigo Girl
+  title: Indigo Girl
   creator: Natasha Boyd
   description: A historical fiction novel
   publication_date: January 1 2017
 illuminae:
   category: book
-  name: Illuminae
+  title: Illuminae
   creator: Amie Kaufman
   description: A great science fiction story
   publication_date: January 1 2016
 # MOVIES
 october:
   category: movie
-  name: The Hunt for Red October
+  title: The Hunt for Red October
   creator: John McTiernan
   description: Cold War spy thriller with submarines
   publication_date: January 1 1990
 balcony:
   category: movie
-  name: The Women's Balcony
+  title: The Women's Balcony
   creator: Emil Ben-Shimon
   description: Israeli comedy film
   publication_date: January 1 2016
-name:
+title:
   category: movie
-  name: Your Name
+  title: Your Name
   creator: Makoto Shinkai
   description: Animated Japanese film. You should see it. No spoilers. Just trust me
   publication_date: January 1 2017
 nausicaa:
   category: movie
-  name: Nausicaa of the Valley of the Wind
+  title: Nausicaa of the Valley of the Wind
   creator: Hayao Miyazaki
   description: Animated sci-fi movie
   publication_date: January 1 1984
 castle:
   category: movie
-  name: Castle in the Sky
+  title: Castle in the Sky
   creator: Hayao Miyazaki
   description: Animated sci-fi movie
   publication_date: January 1 1986
 spirited:
   category: movie
-  name: Spirited Away
+  title: Spirited Away
   creator: Hayao Miyazaki
   description: Animated sci-fi movie
   publication_date: January 1 2001
 hope:
   category: movie
-  name: A New Hope
+  title: A New Hope
   creator: George Lucas
   description: star warssss
   publication_date: January 1 1977
 empire:
   category: movie
-  name: The Empire Strikes Back
+  title: The Empire Strikes Back
   creator: George Lucas
   description: star warssss
   publication_date: January 1 1980
 return:
   category: movie
-  name: Return of the Jedi
+  title: Return of the Jedi
   creator: George Lucas
   description: star warssss
   publication_date: January 1 1983
 chitty:
   category: movie
-  name: Chitty Chitty Bang Bang
+  title: Chitty Chitty Bang Bang
   creator: Ken Hughes
   description: A fantasy musical. A wild ride
   publication_date: January 1 1986
 monsters:
   category: movie
-  name: Monsters, Inc.
+  title: Monsters, Inc.
   creator: Pete Doctor
   description: A classic
   publication_date: January 1 2001
 # ALBUMS
 noteworthy:
   category: album
-  name: The Noteworthy Life of Howard Barnes
+  title: The Noteworthy Life of Howard Barnes
   creator: Village Theater
   description: The music from the musical
   publication_date: January 1 2018
 stormfront:
   category: album
-  name: Storm Front
+  title: Storm Front
   creator: Billy Joel
   description: A cool album
   publication_date: January 1 1989
 shot:
   category: album
-  name: Best Shot
+  title: Best Shot
   creator: Pat Benatar
   description: Another cool album
   publication_date: January 1 1989
 america:
   category: album
-  name: America's Greatest Hits
+  title: America's Greatest Hits
   creator: America
   description: One of their greatest hits is 'Muskrat Love'
   publication_date: January 1 1975
 life:
   category: album
-  name: Oh, What a Life
+  title: Oh, What a Life
   creator: American Authors
   description: Another cool album
   publication_date: January 1 2014
 capsule:
   category: album
-  name: Time Capsule - Songs for a Future Generation
+  title: Time Capsule - Songs for a Future Generation
   creator: The B-52's
   description: Another cool album
   publication_date: January 1 1998
 help:
   category: album
-  name: Help!
+  title: Help!
   creator: The Beatles
   description: Another cool album
   publication_date: January 1 1965
 plastic:
   category: album
-  name: The Age of Plastic
+  title: The Age of Plastic
   creator: The Buggles
   description: Welcome to the plastic age
   publication_date: January 1 2001
 remember:
   category: album
-  name: A Night to Remember
+  title: A Night to Remember
   creator: Cyndi Lauper
   description: like a cat
   publication_date: January 1 1989
 ophelia:
   category: album
-  name: Swamp Ophelia
+  title: Swamp Ophelia
   creator: Indigo Girls
   description: Another cool album
   publication_date: January 1 1994
 hermits:
   category: album
-  name: The Very Best of Herman's Hermits
+  title: The Very Best of Herman's Hermits
   creator: Herman's Hermits
   description: my sentimental friend over there 
   publication_date: January 1 1970

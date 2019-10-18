@@ -12,21 +12,21 @@ describe Work do
   
   describe "validations" do
     before do
-      @work = Work.new(category: "book", name: "To Kill A Mockingbird", creator: "Harper Lee")
+      @work = Work.new(category: "book", title: "To Kill A Mockingbird", creator: "Harper Lee")
     end
     
     it "can pass validations" do
       expect(@work.valid?).must_equal true
     end
     
-    it "is valid with a duplicate name but unique creator" do
-      new_book = Work.create(category: "book", name: @work.name, creator: "Some Other Author")
+    it "is valid with a duplicate title but unique creator" do
+      new_book = Work.create(category: "book", title: @work.title, creator: "Some Other Author")
       
       expect(@work.valid?).must_equal true
     end
     
-    it "is invalid without a name" do
-      @work.name = nil
+    it "is invalid without a title" do
+      @work.title = nil
       
       expect(@work.valid?).must_equal false
     end
@@ -37,12 +37,12 @@ describe Work do
       expect(@work.valid?).must_equal false
     end
     
-    it "is invalid without a unique name-creator-category combination" do
-      new_work = Work.create(category: @work.category, name: @work.name, creator: @work.creator)
+    it "is invalid without a unique title-creator-category combination" do
+      new_work = Work.create(category: @work.category, title: @work.title, creator: @work.creator)
       
       expect(@work.valid?).must_equal false
-      expect(@work.errors.messages).must_include :name
-      expect(@work.errors.messages[:name]).must_include "cannot have the same creator and category as another work"
+      expect(@work.errors.messages).must_include :title
+      expect(@work.errors.messages[:title]).must_include "cannot have the same creator and category as another work"
     end
     
     it "is invalid without a category" do
@@ -120,7 +120,7 @@ describe Work do
       movies = Work.where(category: "movie")
       movies.each do |movie|
         # keep one movie
-        unless movie.name == "The Hunt for Red October"
+        unless movie.title == "The Hunt for Red October"
           movie.destroy
         end
       end

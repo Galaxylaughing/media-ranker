@@ -13,7 +13,7 @@
     <% all_of_type.each do |work| %>
       <tr>
         <td><%= work.votes.count %></td>
-        <td><%= link_to work.name, work_path(work.id) %></td>
+        <td><%= link_to work.title, work_path(work.id) %></td>
         <td><%= work.creator %></td>
         <% if work.publication_date %>
           <td><%= work.publication_date.strftime("%G") %></td>

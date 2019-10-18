@@ -8,7 +8,7 @@
     <% top_works.each do |top_work| %>
       <div class="top_ten__work">
         <h3 class="top_ten__work_intro">
-          <span class="top_ten__work_name"><%= link_to top_work.name, work_path(top_work.id) %></span>
+          <span class="top_ten__work_name"><%= link_to top_work.title, work_path(top_work.id) %></span>
           <span class="top_ten__work_creator">by <%= top_work.creator %></span>
         </h3>
         <% count = top_work.votes.count %>

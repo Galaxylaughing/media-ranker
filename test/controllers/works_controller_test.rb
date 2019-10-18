@@ -37,7 +37,7 @@ describe WorksController do
       work_hash = {
         work: {
           category: "album",
-          name: "Ziggy Stardust",
+          title: "Ziggy Stardust",
           creator: "David Bowie",
           description: "a science fiction album",
           publication_date: "16 June 1972"
@@ -48,10 +48,10 @@ describe WorksController do
         post works_path, params: work_hash
       }.must_change "Work.count", 1
       
-      new_work = Work.find_by(name: work_hash[:work][:name])
+      new_work = Work.find_by(title: work_hash[:work][:title])
       
       expect(new_work.category).must_equal work_hash[:work][:category]
-      expect(new_work.name).must_equal work_hash[:work][:name]
+      expect(new_work.title).must_equal work_hash[:work][:title]
       expect(new_work.creator).must_equal work_hash[:work][:creator]
       expect(new_work.description).must_equal work_hash[:work][:description]
       expect(new_work.publication_date).must_equal Date.parse(work_hash[:work][:publication_date])
@@ -96,7 +96,7 @@ describe WorksController do
       
       work_hash = {
         work: {
-          name: "Rubber Duck: Ducks Away",
+          title: "Rubber Duck: Ducks Away",
           description: "the score from the movie"
         }
       }
@@ -107,7 +107,7 @@ describe WorksController do
       
       updated_work = Work.find_by(id: work.id)
       
-      expect(updated_work.name).must_equal work_hash[:work][:name]
+      expect(updated_work.title).must_equal work_hash[:work][:title]
       expect(updated_work.description).must_equal work_hash[:work][:description]
       
       # the unmodified fields should be the same
@@ -139,7 +139,7 @@ describe WorksController do
       expect(updated_work.description).must_equal work_hash[:work][:description]
       
       # the unmodified fields should be the same
-      expect(updated_work.name).must_equal work.name
+      expect(updated_work.title).must_equal work.title
       expect(updated_work.creator).must_equal work.creator
       expect(updated_work.publication_date).must_equal work.publication_date
       
@@ -169,7 +169,7 @@ describe WorksController do
       
       unchanged_work = Work.find_by(id: work.id)
       expect(unchanged_work.category).must_equal work.category
-      expect(unchanged_work.name).must_equal work.name
+      expect(unchanged_work.title).must_equal work.title
       expect(unchanged_work.creator).must_equal work.creator
       expect(unchanged_work.description).must_equal work.description
       expect(unchanged_work.publication_date).must_equal work.publication_date

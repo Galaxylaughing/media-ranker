@@ -3,7 +3,7 @@
     <% spotlight = Work.find_highest_voted() %>
     <h2 class="spotlight__header">
       <span class="spotlight__header_intro">Media Spotlight:</span>
-      <span class="spotlight__header_data"><%= link_to spotlight.name, work_path(spotlight.id) %></span>
+      <span class="spotlight__header_data"><%= link_to spotlight.title, work_path(spotlight.id) %></span>
       <span class="spotlight__header_data">by <%= spotlight.creator %></span>
     </h2>
 
