@@ -1,15 +1,4 @@
-<% if @work.errors.any? %>
-  <section class="alert alert-warning">
-    <span>A problem occurred:</span>
-    <ul>
-      <% @work.errors.each do |column, message| %>
-        <li>
-          <strong><%= column.capitalize %></strong> <%= message %>
-        </li>
-      <% end %>
-    </ul>
-    </section>
-<% end %>
+<%= render partial: "shared/error", locals: { object: @work} %>
 
 <main>
   <%= render partial: "form", locals: { action_name: "Create", action_phrase: "Add a new work"} %>
