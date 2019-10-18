@@ -237,6 +237,21 @@ describe WorksController do
       expect(flash[:error]).must_equal "You must log in to delete media entries"
       must_respond_with :redirect
     end
+    
+    it "does not delete associated votes if user is not logged in" do
+      work = works(:indigo)
+      
+      expect {
+        delete work_path(work.id)
+      }.wont_change "Work.count"
+      
+      undeleted_work = Work.find_by(id: work.id)
+      expect(undeleted_work).must_equal work
+      expect(undeleted_work.votes).must_equal work.votes
+      expect(flash[:error]).must_equal "You must log in to delete media entries"
+      
+      must_respond_with :redirect
+    end
   end
   
 end
