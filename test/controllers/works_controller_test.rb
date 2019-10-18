@@ -91,7 +91,35 @@ describe WorksController do
   end
   
   describe "update" do
-    it "can update an existing work" do
+    it "can update an existing work with the same category" do
+      work = works(:october)
+      
+      work_hash = {
+        work: {
+          name: "Rubber Duck: Ducks Away",
+          description: "the score from the movie"
+        }
+      }
+      
+      expect {
+        patch work_path(work.id), params: work_hash
+      }.wont_change "Work.count"
+      
+      updated_work = Work.find_by(id: work.id)
+      
+      expect(updated_work.name).must_equal work_hash[:work][:name]
+      expect(updated_work.description).must_equal work_hash[:work][:description]
+      
+      # the unmodified fields should be the same
+      expect(updated_work.category).must_equal work.category
+      expect(updated_work.creator).must_equal work.creator
+      expect(updated_work.published_date).must_equal work.published_date
+      
+      expect(flash[:success]).must_equal "Successfully updated #{work.category} with id #{work.id}"
+      must_redirect_to work_path(updated_work.id)
+    end
+    
+    it "can update an existing work with a new category" do
       work = works(:october)
       
       work_hash = {
@@ -115,6 +143,7 @@ describe WorksController do
       expect(updated_work.creator).must_equal work.creator
       expect(updated_work.published_date).must_equal work.published_date
       
+      expect(flash[:success]).must_equal "Successfully updated #{work.category} with id #{work.id}; now a #{updated_work.category}"
       must_redirect_to work_path(updated_work.id)
     end
     

@@ -28,12 +28,18 @@ class WorksController < ApplicationController
   def edit ; end
   
   def update
+    preupdate_category = @work.category
+    
     if params.nil? || params[:work].nil? || params[:work].empty?
       flash.now[:failure] = "Invalid Media Attributes"
       render :edit
       return
     elsif @work.update(work_params)
-      flash[:success] = "#{@work.name.capitalize} added successfully"
+      if @work.category != preupdate_category
+        flash[:success] = "Successfully updated #{preupdate_category} with id #{@work.id}; now a #{@work.category}"
+      else
+        flash[:success] = "Successfully updated #{@work.category} with id #{@work.id}"
+      end
       redirect_to work_path(@work.id)
       return
     else
