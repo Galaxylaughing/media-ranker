@@ -77,22 +77,40 @@ describe WorksController do
   
   describe "edit" do
     it "can get the edit page for a valid work" do
+      user = users(:metz)
+      perform_login(user)
+      
       get edit_work_path(works(:october).id)
       
       must_respond_with :success
     end
     
     it "redirects for an invalid work" do
+      user = users(:metz)
+      perform_login(user)
+      
       get edit_work_path(-1)
       
       expect(flash[:error]).must_equal "Could not find media with id: -1"
       must_redirect_to works_path
+    end
+    
+    it "wont show the edit page if the user isnt logged in" do
+      work = works(:october)
+      
+      get edit_work_path(work.id)
+      
+      must_redirect_to work_path(work.id)
+      expect(flash[:error]).must_equal "You must log in to make edits"
     end
   end
   
   describe "update" do
     it "can update an existing work with the same category" do
       work = works(:october)
+      
+      user = users(:metz)
+      perform_login(user)
       
       work_hash = {
         work: {
@@ -122,6 +140,9 @@ describe WorksController do
     it "can update an existing work with a new category" do
       work = works(:october)
       
+      user = users(:metz)
+      perform_login(user)
+      
       work_hash = {
         work: {
           category: "album",
@@ -148,6 +169,9 @@ describe WorksController do
     end
     
     it "redirects for an invalid work path" do
+      user = users(:metz)
+      perform_login(user)
+      
       patch work_path(-1)
       
       expect(flash[:error]).must_equal "Could not find media with id: -1"
@@ -156,6 +180,9 @@ describe WorksController do
     
     it "wont update with invalid attributes" do
       work = works(:october)
+      
+      user = users(:metz)
+      perform_login(user)
       
       work_hash = {
         work: {}
@@ -173,6 +200,34 @@ describe WorksController do
       expect(unchanged_work.creator).must_equal work.creator
       expect(unchanged_work.description).must_equal work.description
       expect(unchanged_work.publication_date).must_equal work.publication_date
+    end
+    
+    it "wont update if the user is not logged in" do
+      work = works(:october)
+      
+      work_hash = {
+        work: {
+          title: "Rubber Duck: Ducks Away",
+          description: "the score from the movie"
+        }
+      }
+      
+      expect {
+        patch work_path(work.id), params: work_hash
+      }.wont_change "Work.count"
+      
+      updated_work = Work.find_by(id: work.id)
+      
+      expect(updated_work.title).must_equal work.title
+      expect(updated_work.description).must_equal work.description
+      
+      # the hash fields should NOT have changed
+      expect(updated_work.category).must_equal work.category
+      expect(updated_work.creator).must_equal work.creator
+      expect(updated_work.publication_date).must_equal work.publication_date
+      
+      expect(flash[:error]).must_equal "You must log in to make edits"
+      must_redirect_to work_path(work.id)
     end
   end
   
