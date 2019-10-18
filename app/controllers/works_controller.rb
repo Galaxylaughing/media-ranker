@@ -20,7 +20,6 @@ class WorksController < ApplicationController
       redirect_to work_path(@work.id)
       return
     else
-      flash.now[:failure] = "Media failed to save"
       render :new
       return
     end
@@ -30,7 +29,7 @@ class WorksController < ApplicationController
   
   def update
     if params.nil? || params[:work].nil? || params[:work].empty?
-      flash[:failure] = "Invalid Media Attributes"
+      flash.now[:failure] = "Invalid Media Attributes"
       render :edit
       return
     elsif @work.update(work_params)
@@ -38,7 +37,6 @@ class WorksController < ApplicationController
       redirect_to work_path(@work.id)
       return
     else
-      flash[:failure] = "Media failed to save"
       render :edit
       return
     end

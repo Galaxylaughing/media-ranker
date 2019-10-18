@@ -69,7 +69,7 @@ describe VotesController do
       }.wont_change "Vote.count"
       
       must_respond_with :redirect
-      expect(flash[:failure]).must_equal "Work not found"
+      expect(flash[:error]).must_equal "Work not found"
     end
   end
 end

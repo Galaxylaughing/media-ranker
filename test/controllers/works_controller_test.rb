@@ -71,7 +71,6 @@ describe WorksController do
         post works_path, params: work_hash
       }.wont_change "Work.count"
       
-      expect(flash[:failure]).must_equal "Media failed to save"
       # test render??
     end
   end
@@ -137,7 +136,6 @@ describe WorksController do
         patch work_path(work.id), params: work_hash
       }.wont_change "Work.count"
       
-      expect(flash[:failure]).must_equal "Invalid Media Attributes"
       # test render??
       
       unchanged_work = Work.find_by(id: work.id)

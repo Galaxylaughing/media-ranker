@@ -4,7 +4,7 @@ class VotesController < ApplicationController
     work = Work.find_by(id: work_id)
     
     if work.nil?
-      flash[:failure] = "Work not found"
+      flash[:error] = "Work not found"
       redirect_back(fallback_location: works_path)
       return
     end
