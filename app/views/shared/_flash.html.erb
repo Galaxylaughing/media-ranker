@@ -1,10 +1,14 @@
 <% if flash.any? %>
   <section>
     <% if flash[:success] %>
-      <div class="flash alert alert-success"><%= flash[:success] %></div>
-    <% elsif (flash[:error] || flash[:failure]) && flash.keys.count > 1 %>
+      <div class="flash alert alert-success">
+        <%= flash[:success] %>
+      </div>
+    <% elsif flash[:error] && flash.keys.count > 1 %>
       <div class="flash alert alert-warning">
-        <div>A problem occurred: <%= flash[:error] %></div>
+        <div>
+          A problem occurred: <%= flash[:error] %>
+        </div>
         <ul>
           <% flash.each do |name, message| %>
             <% unless name == "error" %>
