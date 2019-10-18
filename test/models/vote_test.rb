@@ -67,4 +67,38 @@ describe Vote do
       expect(response).must_include "The votes for this work have been removed"
     end
   end
+  
+  describe "say vote/s" do
+    it "says vote for one vote" do
+      work = works(:life_mccorkle)
+      votes = work.votes
+      
+      response = Vote.say_vote_s(votes.count)
+      # this work has one vote
+      expect(response).must_equal "vote"
+    end
+    
+    it "says votes for zero or more than one vote" do
+      work = works(:october)
+      votes = work.votes
+      
+      response = Vote.say_vote_s(votes.count)
+      # this work has four votes
+      expect(response).must_equal "votes"
+    end
+  end
+  
+  describe "say vote" do
+    it "returns vote" do
+      response = Vote.say_vote
+      expect(response).must_equal "vote"
+    end
+  end
+  
+  describe "say votes" do
+    it "returns votes" do
+      response = Vote.say_votes
+      expect(response).must_equal "votes"
+    end
+  end
 end

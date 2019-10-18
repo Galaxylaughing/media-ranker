@@ -24,7 +24,8 @@
     </div>
 
     <section class="obj_show__table_container">
-      <h3 class="header"><%= @work.votes.count %> Votes for this <%= @work.category.capitalize %></h3>
+      <% count = @work.votes.count %>
+      <h3 class="header"><%= count %> <%= Vote.say_vote_s(count).capitalize %> for this <%= @work.category.capitalize %></h3>
       <table class="table obj_table">
         <thead>
           <tr>

@@ -8,7 +8,8 @@
     </h2>
 
     <div>
-      <span><%= spotlight.votes.count %> votes</span>
+      <% count = spotlight.votes.count %>
+      <span><%= count %> <%= Vote.say_vote_s(count) %></span>
       <span> - </span>
       <span><%= spotlight.description %></span>
     </div>

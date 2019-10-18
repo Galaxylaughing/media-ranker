@@ -38,4 +38,23 @@ class Vote < ApplicationRecord
       return nil
     end
   end
+  
+  def self.say_vote_s(count)
+    if count == 1
+      response = Vote.say_vote
+    else
+      response = Vote.say_votes
+    end
+    return response
+  end
+  
+  private
+  
+  def self.say_vote
+    return "vote"
+  end
+  
+  def self.say_votes
+    return "votes"
+  end
 end
