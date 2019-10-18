@@ -49,21 +49,24 @@ class WorksController < ApplicationController
   end
   
   def destroy
-    return unless logged_in?(message: "to delete media entries")
-    
-    # vote deletion must come before work deletion
-    # or the destroy action will cause an ActiveRecord::InvalidForeignKey: PG::ForeignKeyViolation
-    # because the vote is still trying to link up to the work
-    flash_notice = Vote.delete_matching_votes(@work)
-    if flash_notice
-      flash[:votes] = flash_notice
+    if logged_in?(message: "delete media entries")
+      # vote deletion must come before work deletion
+      # or the destroy action will cause an ActiveRecord::InvalidForeignKey: PG::ForeignKeyViolation
+      # because the vote is still trying to link up to the work
+      flash_notice = Vote.delete_matching_votes(@work)
+      if flash_notice
+        flash[:votes] = flash_notice
+      end
+      
+      @work.destroy
+      
+      flash[:success] = "'#{@work.title}' deleted successfully"
+      redirect_to works_path
+      return
+    else
+      redirect_back(fallback_location: works_path)
+      return
     end
-    
-    @work.destroy
-    
-    flash[:success] = "'#{@work.title}' deleted successfully"
-    redirect_to works_path
-    return
   end
   
   private
@@ -88,12 +91,11 @@ class WorksController < ApplicationController
     end
   end
   
-  def logged_in?(message: "to do this")
+  def logged_in?(message: "perform this action")
     user_id = session[:user_id]
     
     if user_id.nil?
-      flash[:error] = "You must log in #{message}"
-      redirect_back(fallback_location: works_path)
+      flash[:error] = "You must log in to #{message}"
       return false
     end
     
