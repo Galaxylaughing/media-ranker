@@ -18,9 +18,9 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :published_date %>
+    <%= f.label :publication_date %>
     <%# the oldest known printed book is the Gutenberg Bible from 1454 %>
-    <%= f.date_select :published_date, {start_year: 1454, discard_day: true, discard_month: true}, {class: "form-control"} %>
+    <%= f.date_select :publication_date, {start_year: 1454, discard_day: true, discard_month: true}, {class: "form-control"} %>
   </div>
   
   <div class="form-group">

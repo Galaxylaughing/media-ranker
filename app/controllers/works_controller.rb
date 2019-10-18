@@ -68,7 +68,7 @@ class WorksController < ApplicationController
   
   def work_params
     if params[:work]
-      return params.require(:work).permit(:category, :name, :creator, :published_date, :description)
+      return params.require(:work).permit(:category, :name, :creator, :publication_date, :description)
     else
       return nil
     end

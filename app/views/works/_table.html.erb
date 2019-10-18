@@ -15,8 +15,8 @@
         <td><%= work.votes.count %></td>
         <td><%= link_to work.name, work_path(work.id) %></td>
         <td><%= work.creator %></td>
-        <% if work.published_date %>
-          <td><%= work.published_date.strftime("%G") %></td>
+        <% if work.publication_date %>
+          <td><%= work.publication_date.strftime("%G") %></td>
         <% else %>
           <td>[unknown]</td>
         <% end %>

@@ -5,8 +5,8 @@
 
     <p>
       Published: 
-      <% if !(@work.published_date.nil?) %>
-        <%= @work.published_date.strftime("%G") %>
+      <% if !(@work.publication_date.nil?) %>
+        <%= @work.publication_date.strftime("%G") %>
       <% else %>
         unknown publication date
       <% end %>

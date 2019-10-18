@@ -33,8 +33,8 @@ class Work < ApplicationRecord
     
     # sorted_list = list.sort { |a, b|
     #   r = (b.votes.length <=> a.votes.length)
-    #   if r == 0 && b.published_date && a.published_date
-    #     r = (b.published_date <=> a.published_date)
+    #   if r == 0 && b.publication_date && a.publication_date
+    #     r = (b.publication_date <=> a.publication_date)
     #   end
     #   r = (b.id <=> a.id) if (r == 0)
     #   r
@@ -50,7 +50,7 @@ class Work < ApplicationRecord
     # https://stackoverflow.com/questions/16996618/rails-order-by-results-count-of-has-many-association
     # https://github.com/rails/rails/issues/32995 (for how to use Arel.sql)
     # https://stackoverflow.com/questions/3587776/ruby-on-rails-how-do-i-sort-with-two-columns-using-activerecord (for using multiple order parameters)
-    return Work.left_joins(:votes).group(:id).order(Arel.sql('COUNT(votes.id) DESC'), published_date: :desc, id: :desc)
+    return Work.left_joins(:votes).group(:id).order(Arel.sql('COUNT(votes.id) DESC'), publication_date: :desc, id: :desc)
   end
   
 end

@@ -40,7 +40,7 @@ describe WorksController do
           name: "Ziggy Stardust",
           creator: "David Bowie",
           description: "a science fiction album",
-          published_date: "16 June 1972"
+          publication_date: "16 June 1972"
         }
       }
       
@@ -54,7 +54,7 @@ describe WorksController do
       expect(new_work.name).must_equal work_hash[:work][:name]
       expect(new_work.creator).must_equal work_hash[:work][:creator]
       expect(new_work.description).must_equal work_hash[:work][:description]
-      expect(new_work.published_date).must_equal Date.parse(work_hash[:work][:published_date])
+      expect(new_work.publication_date).must_equal Date.parse(work_hash[:work][:publication_date])
       
       expect(flash[:success]).must_equal "Album added successfully"
       must_redirect_to work_path(new_work.id)
@@ -113,7 +113,7 @@ describe WorksController do
       # the unmodified fields should be the same
       expect(updated_work.category).must_equal work.category
       expect(updated_work.creator).must_equal work.creator
-      expect(updated_work.published_date).must_equal work.published_date
+      expect(updated_work.publication_date).must_equal work.publication_date
       
       expect(flash[:success]).must_equal "Successfully updated #{work.category} with id #{work.id}"
       must_redirect_to work_path(updated_work.id)
@@ -141,7 +141,7 @@ describe WorksController do
       # the unmodified fields should be the same
       expect(updated_work.name).must_equal work.name
       expect(updated_work.creator).must_equal work.creator
-      expect(updated_work.published_date).must_equal work.published_date
+      expect(updated_work.publication_date).must_equal work.publication_date
       
       expect(flash[:success]).must_equal "Successfully updated #{work.category} with id #{work.id}; now a #{updated_work.category}"
       must_redirect_to work_path(updated_work.id)
@@ -172,7 +172,7 @@ describe WorksController do
       expect(unchanged_work.name).must_equal work.name
       expect(unchanged_work.creator).must_equal work.creator
       expect(unchanged_work.description).must_equal work.description
-      expect(unchanged_work.published_date).must_equal work.published_date
+      expect(unchanged_work.publication_date).must_equal work.publication_date
     end
   end
   

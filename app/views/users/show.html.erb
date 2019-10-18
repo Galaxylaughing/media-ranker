@@ -22,7 +22,7 @@
               <tr>
                 <td><%= link_to vote.work.name, work_path(vote.work.id) %></td>
                 <td><%= vote.work.creator %></td>
-                <td><%= vote.work.published_date.strftime("%G") %></td>
+                <td><%= vote.work.publication_date.strftime("%G") %></td>
                 <% category = vote.work.category.capitalize %>
                 <td><%= link_to category, works_path + "##{category}" %></td>
                 <td><%= vote.date.strftime("%b %d, %G") %></td>
