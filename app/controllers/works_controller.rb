@@ -49,6 +49,8 @@ class WorksController < ApplicationController
   end
   
   def destroy
+    return unless logged_in?(message: "to delete media entries")
+    
     # vote deletion must come before work deletion
     # or the destroy action will cause an ActiveRecord::InvalidForeignKey: PG::ForeignKeyViolation
     # because the vote is still trying to link up to the work
@@ -84,6 +86,18 @@ class WorksController < ApplicationController
       redirect_to works_path
       return
     end
+  end
+  
+  def logged_in?(message: "to do this")
+    user_id = session[:user_id]
+    
+    if user_id.nil?
+      flash[:error] = "You must log in #{message}"
+      redirect_back(fallback_location: works_path)
+      return false
+    end
+    
+    return user_id
   end
   
 end

@@ -180,6 +180,9 @@ describe WorksController do
     it "removes the work from the database" do
       work = works(:remember)
       
+      user = users(:metz)
+      perform_login(user)
+      
       expect {
         delete work_path(work.id)
       }.must_change "Work.count", -1
@@ -194,6 +197,9 @@ describe WorksController do
     it "deletes any associated votes" do
       work = works(:indigo)
       
+      user = users(:metz)
+      perform_login(user)
+      
       expect {
         delete work_path(work.id)
       }.must_change "Work.count", -1
@@ -206,12 +212,30 @@ describe WorksController do
     end
     
     it "redirects when the work is not found" do
+      user = users(:metz)
+      perform_login(user)
+      
       expect {
         delete work_path(-1)
       }.wont_change "Work.count"
       
       expect(flash[:error]).must_equal "Could not find media with id: -1"
       must_redirect_to works_path
+    end
+    
+    it "does not delete if user is not logged in" do
+      work = works(:remember)
+      
+      expect {
+        delete work_path(work.id)
+      }.wont_change "Work.count"
+      
+      undeleted_work = Work.find_by(id: work.id)
+      expect(undeleted_work).must_equal work
+      expect(undeleted_work.votes.count).must_equal work.votes.count
+      
+      expect(flash[:error]).must_equal "You must log in to delete media entries"
+      must_respond_with :redirect
     end
   end
   
