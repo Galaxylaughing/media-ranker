@@ -1,0 +1,7 @@
+<section class="obj_index__category">
+  <a id=<%= category.capitalize %>></a>
+  <h3 class="header secondary_header obj_index__category_header">
+    <%= category_plural.capitalize %> <%= link_to "#", works_path + "##{category.capitalize}", class: "obj_index__anchor" %>
+  </h3>
+  <%= render partial: "table", locals: { category: category } %>
+</section>
