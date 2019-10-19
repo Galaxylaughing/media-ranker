@@ -110,7 +110,7 @@ describe Work do
       expect(response).must_be_empty
     end
     
-    it "returns a list even if there are no works" do
+    it "returns a list even if there are no votes" do
       response = Work.find_top_ten("album")
       
       expect(response.length).must_equal 10
