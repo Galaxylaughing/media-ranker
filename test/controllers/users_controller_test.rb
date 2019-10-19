@@ -160,10 +160,22 @@ describe UsersController do
       must_respond_with :success
     end
     
-    it "cant access the delete account page for a logged out user" do
+    it "can't access the delete account page for a logged out user" do
       user = users(:sabrina)
       
       get delete_user_path(user.id)
+      
+      expect(flash[:error]).must_equal "You are not authorized to perform this action"
+      must_redirect_to root_path
+    end
+    
+    it "can't access someone else's delete account page" do
+      user_sabrina = users(:sabrina)
+      user_metz = users(:metz)
+      
+      perform_login(user_sabrina)
+      
+      get delete_user_path(user_metz.id)
       
       expect(flash[:error]).must_equal "You are not authorized to perform this action"
       must_redirect_to root_path
@@ -211,6 +223,27 @@ describe UsersController do
       votes.each do |vote|
         expect(vote).wont_be_nil
       end
+      
+      must_redirect_to root_path
+    end
+    
+    it "wont delete a different user" do
+      user_sabrina = users(:sabrina)
+      user_metz = users(:metz)
+      
+      perform_login(user_sabrina)
+      
+      expect {
+        delete user_path(user_metz.id)
+      }.wont_change "User.count"
+      
+      undeleted_user_1 = User.find_by(id: user_metz.id)
+      expect(undeleted_user_1).must_equal user_metz
+      
+      undeleted_user_2 = User.find_by(id: user_sabrina.id)
+      expect(undeleted_user_2).must_equal user_sabrina
+      
+      expect(flash[:error]).must_equal "You are not authorized to perform this action"
       
       must_redirect_to root_path
     end

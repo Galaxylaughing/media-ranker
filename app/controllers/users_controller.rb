@@ -56,7 +56,10 @@ class UsersController < ApplicationController
   def show; end
   
   def delete
-    if !(logged_in?)
+    logged_in_id = logged_in?
+    user = User.find_by(id: params[:id])
+    
+    if !logged_in_id || user.id != logged_in_id
       flash[:error] = "You are not authorized to perform this action"
       redirect_to root_path
       return
@@ -64,10 +67,10 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    user_id = logged_in?
-    if user_id
-      user = User.find_by(id: user_id)
-      
+    logged_in_id = logged_in?
+    user = User.find_by(id: params[:id])
+    
+    if logged_in_id && user.id == logged_in_id
       # vote deletion must come before user deletion
       # or the destroy action will cause an ActiveRecord::InvalidForeignKey: PG::ForeignKeyViolation
       # because the vote is still trying to link up to the user
