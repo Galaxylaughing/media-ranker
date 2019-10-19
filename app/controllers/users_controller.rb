@@ -82,7 +82,7 @@ class UsersController < ApplicationController
       if user.destroy
         # log out user
         session[:user_id] = nil
-        flash[:success] = "User deleted successfully"
+        flash[:success] = "#{user.username} deleted successfully"
         redirect_to root_path
         return
       else

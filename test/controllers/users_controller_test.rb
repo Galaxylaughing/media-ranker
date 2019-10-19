@@ -196,7 +196,7 @@ describe UsersController do
       deleted_user = User.find_by(id: user.id)
       expect(deleted_user).must_be_nil
       
-      expect(flash[:success]).must_equal "User deleted successfully"
+      expect(flash[:success]).must_equal "#{user.username} deleted successfully"
       
       votes.each do |vote|
         expect(vote).must_be_nil
