@@ -170,11 +170,11 @@ a:hover {
   color: white;
 }
 
-.btn-primary:disabled {
+.btn-primary.disabled {
   background-color: $light_secondary;
 }
 
-.btn-primary:disabled:hover a {
+.btn-primary.disabled:hover a {
   cursor: default;
 }
 

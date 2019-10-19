@@ -23,13 +23,9 @@
           <td>[unknown]</td>
         <% end %>
         <% voted = current_user_votes.index { |v| v.work_id == work.id } %>
-        
-        <td><button type="button" class="btn btn-primary" <%= "disabled" if voted %> >
-        <% if voted %>
-          Upvote
-        <% else %>
+
+        <td><button type="button" class="btn btn-primary <%= "disabled" if voted %>">
           <%= link_to "Upvote", work_upvote_path(work.id), method: :post %>
-        <% end %>
         </button></td>
       </tr>
     <% end %>
