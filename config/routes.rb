@@ -7,13 +7,12 @@ Rails.application.routes.draw do
   post "/logout", to: "users#logout", as: "logout"
   get "/users/current", to: "users#current", as: "current_user"
   
-  resources :works, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :works
   
   resources :works do
     post '/upvote', to: "votes#upvote", as: "upvote"
   end
   
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show, :destroy]
   get '/users/:id/delete', to: "users#delete", as: "delete_user"
-  delete '/users/:id/', to: "users#destroy"
 end
