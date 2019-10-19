@@ -1,3 +1,47 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.buttons_container {
+  display: flex;
+  flex-direction: row;
+}
+
+.account_management {
+  margin-left: auto;
+}
+
+.delete_user__header {
+  margin-top: 3.5rem;
+  text-align: center;
+}
+
+.delete_user__options_container {
+  text-align: center;
+  display: block;
+}
+
+.space_top {
+  margin-top: 2rem;
+}
+
+.delete_user__form_toggle {
+  margin-bottom: 0;
+}
+
+/* "checkbox hack" info from: https://css-tricks.com/the-checkbox-hack/
+and Teneff's response to the thread: https://stackoverflow.com/questions/40344958/css-show-element-by-clicking-button */
+
+input[type=checkbox], input[type=checkbox] ~ * {
+  display: none;
+}
+
+input[type=checkbox]:checked ~ * {
+  /* 1.5s => fade in should last 1.5 seconds */
+  /* ease-in => gradually transition */
+  /* 0s => don't delay running the code */
+  /* 1 => only run the code once */
+  animation: 1.5s ease-in 0s 1 fadeIn;
+
+  display: block;
+}

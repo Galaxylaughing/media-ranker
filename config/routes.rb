@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   end
   
   resources :users, only: [:index, :show]
+  get '/users/:id/delete', to: "users#delete", as: "delete_user"
+  patch '/users/:id/', to: "users#destroy"
 end

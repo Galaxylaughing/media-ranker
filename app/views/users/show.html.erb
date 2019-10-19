@@ -1,6 +1,7 @@
 <main>
   <section class="obj_show">
     <h2 class="header primary_header">User Summary: <%= @user.username %></h2>
+    
     <p>Joined site <%= @user.date_joined.strftime("%b %d, %G") %></p>
 
     <section class="obj_show__table_container">
@@ -33,9 +34,14 @@
       </table>
     </section>
 
-    <div>
-      <button type="button" class="btn btn-secondary"><%= link_to "See all users", users_path %></button>
-      <button type="button" class="btn btn-primary"><%= link_to "Back to media list", works_path %></button>
+    <div class="buttons_container">
+      <div class="nav_buttons">
+        <button type="button" class="btn btn-secondary"><%= link_to "See all users", users_path %></button>
+        <button type="button" class="btn btn-primary"><%= link_to "Back to media list", works_path %></button>
+      </div>
+      <div class="account_management">
+        <button type="button" class="btn btn-danger"><%= link_to "Delete Account", delete_user_path(@user.id) %></button>
+      </div>
     </div>
   </section>
 </main>

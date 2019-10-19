@@ -148,4 +148,37 @@ describe UsersController do
       must_redirect_to users_path
     end
   end
+  
+  describe "delete" do
+    it "can get the delete account page for a logged in user" do
+      user = users(:sabrina)
+      
+      perform_login(user)
+      
+      get delete_user_path(user.id)
+      
+      must_respond_with :success
+    end
+    
+    it "cant access the delete account page for a logged out user" do
+      user = users(:sabrina)
+      
+      get delete_user_path(user.id)
+      
+      expect(flash[:error]).must_equal "You are not authorized to perform this action"
+      must_redirect_to root_path
+    end
+  end
+  
+  describe "destroy" do
+    it "can delete a user but not their votes" do
+    end
+    
+    it "can delete a user and their votes" do
+    end
+    
+    it "wont delete a user who is not logged in" do
+    end
+  end
+  
 end

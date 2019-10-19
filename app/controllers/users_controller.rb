@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :get_user, only: [:show, :delete]
+  
   def login_form
     user = User.new
   end
@@ -51,7 +53,23 @@ class UsersController < ApplicationController
     @users = User.sort_by_date_joined
   end
   
-  def show
+  def show; end
+  
+  def delete
+    if !(logged_in?)
+      flash[:error] = "You are not authorized to perform this action"
+      redirect_to root_path
+      return
+    end
+  end
+  
+  def destroy
+    
+  end
+  
+  private
+  
+  def get_user
     @user = User.find_by(id: params[:id])
     
     if @user.nil?
@@ -60,4 +78,15 @@ class UsersController < ApplicationController
       return
     end
   end
+  
+  def logged_in?
+    user_id = session[:user_id]
+    
+    if user_id.nil?
+      return false
+    end
+    
+    return user_id
+  end
+  
 end
