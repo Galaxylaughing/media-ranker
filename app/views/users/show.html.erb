@@ -40,7 +40,9 @@
         <button type="button" class="btn btn-primary"><%= link_to "Back to media list", works_path %></button>
       </div>
       <div class="account_management">
-        <button type="button" class="btn btn-danger"><%= link_to "Delete Account", delete_user_path(@user.id) %></button>
+        <% if session[:user_id] && @user.id == session[:user_id] %>
+          <button type="button" class="btn btn-danger"><%= link_to "Delete Account", delete_user_path(@user.id) %></button>
+        <% end %>
       </div>
     </div>
   </section>
