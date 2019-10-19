@@ -19,7 +19,7 @@
     <input type="checkbox" id="toggle_form">
 
     <div class="delete_user__form_container space_top">
-      <%= form_with model: @user, class: "form-group" do |f| %>
+      <%= form_with model: @user, method: "delete", class: "form-group" do |f| %>
         <h2 class="header primary_header">What about your votes?</h2>
 
         <div class="form-check space_top">

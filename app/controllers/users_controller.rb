@@ -64,7 +64,24 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    
+    user_id = logged_in?
+    if user_id
+      choice = params[:user][:votes]
+      
+      if choice == "keep"
+        user = User.find_by(id: user_id)
+        user.username = "[deleted]"
+        if user.save
+          logout()
+          return
+        else
+          flash[:error] = "Something went wrong"
+          redirect_to root_path
+          return
+        end
+      elsif choice == "delete"
+      end
+    end
   end
   
   private

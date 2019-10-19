@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   
   resources :users, only: [:index, :show]
   get '/users/:id/delete', to: "users#delete", as: "delete_user"
-  patch '/users/:id/', to: "users#destroy"
+  delete '/users/:id/', to: "users#destroy"
 end

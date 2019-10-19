@@ -172,6 +172,27 @@ describe UsersController do
   
   describe "destroy" do
     it "can delete a user but not their votes" do
+      user = users(:sabrina)
+      votes = user.votes
+      
+      perform_login(user)
+      
+      choice_hash = {
+        user: {
+          votes: "keep"
+        }
+      }
+      
+      expect {
+        delete user_path(user.id), params: choice_hash
+      }.wont_change "User.count"
+      
+      deleted_user = User.find_by(id: user.id)
+      expect(deleted_user.username).must_equal "[deleted]"
+      
+      # it should log out the user
+      expect(session[:user_id]).must_be_nil
+      must_redirect_to root_path
     end
     
     it "can delete a user and their votes" do
