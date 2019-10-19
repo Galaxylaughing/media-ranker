@@ -11,4 +11,14 @@ class User < ApplicationRecord
     # https://stackoverflow.com/questions/3587776/ruby-on-rails-how-do-i-sort-with-two-columns-using-activerecord (for using multiple order parameters)
     return User.order(date_joined: :asc, username: :asc)
   end
+  
+  def self.find_votes_by_id(id)
+    user = User.find_by(id: id)
+    if user
+      user_votes = user.votes
+      return user_votes
+    else
+      return []
+    end
+  end
 end

@@ -77,4 +77,32 @@ describe User do
       expect(list[2]).must_equal users(:sabrina)
     end
   end
+  
+  describe "find votes by id" do
+    it "returns an array of votes" do
+      user = users(:butler)
+      
+      response = User.find_votes_by_id(user.id)
+      
+      response.each do |vote|
+        expect(vote).must_be_instance_of Vote
+      end
+    end
+    
+    it "returns an empty array for a user with no votes" do
+      new_user = User.create(username: "something_unique")
+      
+      response = User.find_votes_by_id(new_user.id)
+      
+      expect(response).must_respond_to :index
+      expect(response).must_be_empty
+    end
+    
+    it "returns an empty array for a nil user" do
+      response = User.find_votes_by_id(nil)
+      
+      expect(response).must_respond_to :index
+      expect(response).must_be_empty
+    end
+  end
 end

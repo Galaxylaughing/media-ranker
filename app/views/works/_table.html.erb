@@ -9,6 +9,8 @@
     </tr>
   </thead>
   <tbody>
+    <% current_user_votes = User.find_votes_by_id(session[:user_id]) %>
+
     <% all_of_type = @works.where(category: category) %>
     <% all_of_type.each do |work| %>
       <tr>
@@ -20,7 +22,15 @@
         <% else %>
           <td>[unknown]</td>
         <% end %>
-        <td><button type="button" class="btn btn-primary"><%= link_to "Upvote", work_upvote_path(work.id), method: :post %></button></td>
+        <% voted = current_user_votes.index { |v| v.work_id == work.id } %>
+        
+        <td><button type="button" class="btn btn-primary" <%= "disabled" if voted %> >
+        <% if voted %>
+          Upvote
+        <% else %>
+          <%= link_to "Upvote", work_upvote_path(work.id), method: :post %>
+        <% end %>
+        </button></td>
       </tr>
     <% end %>
   </tbody>

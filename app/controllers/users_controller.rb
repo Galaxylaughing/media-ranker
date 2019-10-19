@@ -109,6 +109,7 @@ class UsersController < ApplicationController
     end
   end
   
+  
   def logged_in?
     user_id = session[:user_id]
     
@@ -118,5 +119,4 @@ class UsersController < ApplicationController
     
     return user_id
   end
-  
 end
