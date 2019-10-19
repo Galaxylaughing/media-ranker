@@ -66,21 +66,31 @@ class UsersController < ApplicationController
   def destroy
     user_id = logged_in?
     if user_id
-      choice = params[:user][:votes]
+      user = User.find_by(id: user_id)
       
-      if choice == "keep"
-        user = User.find_by(id: user_id)
-        user.username = "[deleted]"
-        if user.save
-          logout()
-          return
-        else
-          flash[:error] = "Something went wrong"
-          redirect_to root_path
-          return
-        end
-      elsif choice == "delete"
+      # vote deletion must come before user deletion
+      # or the destroy action will cause an ActiveRecord::InvalidForeignKey: PG::ForeignKeyViolation
+      # because the vote is still trying to link up to the user
+      flash_notice = Vote.delete_matching_user_votes(user)
+      if flash_notice
+        flash[:votes] = flash_notice
       end
+      
+      if user.destroy
+        # log out user
+        session[:user_id] = nil
+        flash[:success] = "User deleted successfully"
+        redirect_to root_path
+        return
+      else
+        flash[:error] = "Something went wrong"
+        redirect_to user_path(user.id)
+        return
+      end
+    else
+      flash[:error] = "You are not authorized to perform this action"
+      redirect_to root_path
+      return
     end
   end
   

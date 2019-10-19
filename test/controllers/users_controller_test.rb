@@ -171,34 +171,48 @@ describe UsersController do
   end
   
   describe "destroy" do
-    it "can delete a user but not their votes" do
+    it "can delete a user and their votes" do
       user = users(:sabrina)
       votes = user.votes
       
       perform_login(user)
       
-      choice_hash = {
-        user: {
-          votes: "keep"
-        }
-      }
-      
       expect {
-        delete user_path(user.id), params: choice_hash
-      }.wont_change "User.count"
+        delete user_path(user.id)
+      }.must_change "User.count", -1
       
       deleted_user = User.find_by(id: user.id)
-      expect(deleted_user.username).must_equal "[deleted]"
+      expect(deleted_user).must_be_nil
+      
+      expect(flash[:success]).must_equal "User deleted successfully"
+      
+      votes.each do |vote|
+        expect(vote).must_be_nil
+      end
       
       # it should log out the user
       expect(session[:user_id]).must_be_nil
       must_redirect_to root_path
     end
     
-    it "can delete a user and their votes" do
-    end
-    
     it "wont delete a user who is not logged in" do
+      user = users(:sabrina)
+      votes = user.votes
+      
+      expect {
+        delete user_path(user.id)
+      }.wont_change "User.count"
+      
+      undeleted_user = User.find_by(id: user.id)
+      expect(undeleted_user).must_equal user
+      
+      expect(flash[:error]).must_equal "You are not authorized to perform this action"
+      
+      votes.each do |vote|
+        expect(vote).wont_be_nil
+      end
+      
+      must_redirect_to root_path
     end
   end
   

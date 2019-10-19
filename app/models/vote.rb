@@ -7,8 +7,35 @@ class Vote < ApplicationRecord
   validates :user_id, presence: true, uniqueness: { scope: :work_id }
   validates :work_id, presence: true
   
-  def self.delete_matching_votes(work)
-    matching_votes = Vote.delete_votes(work)
+  def self.delete_matching_user_votes(user)
+    user_id = user.id
+    matching_votes = Vote.where(user_id: user_id)
+    matching_votes = delete_votes(matching_votes)
+    
+    if matching_votes
+      works = []
+      matching_votes.each do |vote|
+        work = Work.find_by(id: vote.work_id)
+        works << work.title
+      end
+      works_string = works.join(", ")
+      flash_notice = "The votes for this user have been removed."
+      if works.length == 1
+        flash_notice << " The work vote on was #{works_string}"
+      else
+        flash_notice << " The works voted on were #{works_string}"
+      end
+    else
+      return nil
+    end
+    return flash_notice
+  end
+  
+  def self.delete_matching_work_votes(work)
+    work_id = work.id
+    matching_votes = Vote.where(work_id: work_id)
+    matching_votes = delete_votes(matching_votes)
+    
     if matching_votes
       voters = []
       matching_votes.each do |vote|
@@ -16,18 +43,19 @@ class Vote < ApplicationRecord
         voters << user.username
       end
       votes_string = voters.join(", ")
-      flash_notice = "The votes for this work have been removed. The voters were #{votes_string}"
+      flash_notice = "The votes for this work have been removed."
+      if voters.length == 1
+        flash_notice << " The voter was #{votes_string}"
+      else
+        flash_notice << " The voters were #{votes_string}"
+      end
     else
       return nil
     end
     return flash_notice
   end
   
-  def self.delete_votes(work)
-    work_id = work.id
-    
-    matching_votes = Vote.where(work_id: work_id)
-    
+  def self.delete_votes(matching_votes)
     if matching_votes.length > 0
       output = matching_votes
       matching_votes.each do |vote|

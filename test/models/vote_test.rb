@@ -51,20 +51,51 @@ describe Vote do
     end
   end
   
-  describe "delete matching votes" do
+  describe "delete matching votes for a work" do
     it "must change vote count" do
       work = works(:uglies)
       
       expect {
-        Vote.delete_matching_votes(work)
+        Vote.delete_matching_work_votes(work)
       }.must_change "Vote.count", -2
     end
     
-    it "must return a string of votes" do
+    it "must return a string of multiple votes" do
       work = works(:uglies)
       
-      response = Vote.delete_matching_votes(work)
-      expect(response).must_include "The votes for this work have been removed"
+      response = Vote.delete_matching_work_votes(work)
+      expect(response).must_include "The votes for this work have been removed. The voters were"
+    end
+    
+    it "must return a string of a single vote" do
+      work = works(:life_mccorkle)
+      
+      response = Vote.delete_matching_work_votes(work)
+      expect(response).must_include "The votes for this work have been removed. The voter was"
+    end
+  end
+  
+  describe "delete matching votes for a user" do
+    it "must change vote count" do
+      user = users(:metz)
+      
+      expect {
+        Vote.delete_matching_user_votes(user)
+      }.must_change "Vote.count", -1
+    end
+    
+    it "must return a string of multiple votes" do
+      user = users(:metz)
+      
+      response = Vote.delete_matching_user_votes(user)
+      expect(response).must_include "The votes for this user have been removed. The works voted on were"
+    end
+    
+    it "must return a string of a single vote" do
+      user = users(:sabrina)
+      
+      response = Vote.delete_matching_user_votes(user)
+      expect(response).must_include "The votes for this user have been removed. The work vote on was"
     end
   end
   

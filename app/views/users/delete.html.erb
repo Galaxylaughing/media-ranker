@@ -14,24 +14,12 @@
     </button>
 
     <label for="toggle_form" class="btn btn-warning delete_user__form_toggle">
-      Yes. Show me the form
+      Yes. Show me the button
     </label>
     <input type="checkbox" id="toggle_form">
 
     <div class="delete_user__form_container space_top">
       <%= form_with model: @user, method: "delete", class: "form-group" do |f| %>
-        <h2 class="header primary_header">What about your votes?</h2>
-
-        <div class="form-check space_top">
-          <%= f.radio_button :votes, 'keep', class: "form-check-input" %>
-          <%= f.label :votes, "Preserve my votes after I'm gone; they're my legacy to the world", class: "form-check-label" %>
-        </div>
-          
-        <div class="form-check">
-          <%= f.radio_button :votes, 'delete', class: "form-check-input" %>
-          <%= f.label :votes, "Delete my votes. Leave no trace of my presence", class: "form-check-label" %>
-        </div>
-
         <%= f.submit "Delete Account", data: { confirm: "Are you sure?" }, class: "btn btn-danger submit_user_delete space_top" %>
       <% end %>
     </div>
