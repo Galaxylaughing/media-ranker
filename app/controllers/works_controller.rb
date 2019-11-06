@@ -2,9 +2,9 @@ class WorksController < ApplicationController
   before_action :find_work, only: [:show, :edit, :update, :destroy]
   before_action :if_work_missing, only: [:show, :edit, :update, :destroy]
   
-  def index
-    @works = Work.sort_by_votes
-  end
+  # def index
+  #   @works = Work.sort_by_votes
+  # end
   
   def show ; end
   
@@ -12,18 +12,18 @@ class WorksController < ApplicationController
     @work = Work.new
   end
   
-  def create
-    @work = Work.new(work_params)
-    
-    if @work.save
-      flash[:success] = "#{@work.category.capitalize} added successfully"
-      redirect_to work_path(@work.id)
-      return
-    else
-      render :new
-      return
-    end
-  end
+  # def create
+  #   @work = Work.new(work_params)
+  
+  #   if @work.save
+  #     flash[:success] = "#{@work.category.capitalize} added successfully"
+  #     redirect_to work_path(@work.id)
+  #     return
+  #   else
+  #     render :new
+  #     return
+  #   end
+  # end
   
   def edit
     unless logged_in?(message: "make edits")
