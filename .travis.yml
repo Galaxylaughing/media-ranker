@@ -1,14 +1,14 @@
 language: ruby
-
 rvm:
-  - 2.5.5
-
+- 2.5.5
 services:
-  - postgresql
-
+- postgresql
 before_script:
-  - bin/rails db:create
-  - bin/rails db:migrate
-
+- bin/rails db:create
+- bin/rails db:migrate
 script:
-  - bin/rails test
+- bin/rails test
+deploy:
+  provider: heroku
+  api_key:
+    secure: Zy2gnkTHeE6uso1icSWl3qAx+d9NFbCOLXud2kJLFjh6GMzeP/Y0o3VBPZRX1aSrVkaH+p4pgkCN9xzN0EhUVilsL/I4p/zNdgHs8TJVdowak8lZEAej2c/RqhgOLrwam3P7B7IaoL7aM4/zsRVmNgYDjOt9YFHXyILjAVmirU3WMo7cxaSm6H5XfRb0tDSpBqFq4W9kfta66cFQ9kh2YOHHpe4yLsiet01WDTYYxZaB19cLobJ3bPeJ3Div2gv3zT/F2dBp4AlLjmgAAyoXOqLHhRYhwzneRKTFjjR7qYpT9BqJwn5uzevY9QeIu7yEYx+Tcjgtx/7ckKOf5O+/eoNI04ScrLGWIhwAfWf82Xo/nyz78A1IIuslmIJZlrsSCcKFwvzl3wSHcgZUUF7sMvqxqBo5WkSWt4/vFxm3xK2asNmKMKFU9P/rKbQaN4geiraO14SdwPugkeCm9qTw1ED94BtWny7Jy3+VJl7HbC3nHq7TuA3zsXYOdTl91ivrt3caOM7Q55IrFfFCY48MBr4Yk6Z51t6TW13yCvZEtU2hVbogGhrYlzPfenyLpUEf4bfC1ifo0pBzY0jAd3IkVwjoNekQoh01r2BTvVEQYVgMkfrUHX9R0KRCZEEwtg8SEc046xaeUfl/bd0ZXagUX73w5sudStHSngfsYIPkHlk=
